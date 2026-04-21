@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Rotate PDF Online Free — Rotate PDF Pages | PDFQuick</title>
+  <meta name="description" content="Rotate PDF pages online for free. Rotate all pages or individual pages by 90, 180 or 270 degrees. No signup needed. Works instantly in your browser."/>
+  <meta name="keywords" content="rotate PDF, rotate PDF pages, flip PDF, turn PDF pages, rotate PDF free online"/>
+  <meta name="author" content="PDFQuick"/>
+  <meta name="robots" content="index, follow"/>
+  <link rel="canonical" href="https://pdfquick-dun.vercel.app/rotate.html"/>
+  <meta property="og:type" content="website"/>
+  <meta property="og:url" content="https://pdfquick-dun.vercel.app/rotate.html"/>
+  <meta property="og:title" content="Rotate PDF Online Free — PDFQuick"/>
+  <meta property="og:description" content="Rotate PDF pages online for free. 90, 180 or 270 degrees. Fast and private."/>
+  <meta property="og:image" content="https://pdfquick-dun.vercel.app/og-image.png"/>
+  <meta property="og:site_name" content="PDFQuick"/>
+  <meta name="twitter:card" content="summary_large_image"/>
+  <meta name="twitter:title" content="Rotate PDF Online Free — PDFQuick"/>
+  <meta name="twitter:description" content="Rotate PDF pages online for free."/>
+  <meta name="twitter:image" content="https://pdfquick-dun.vercel.app/og-image.png"/>
+  <meta name="theme-color" content="#3B6DFF"/>
+  <link rel="icon" type="image/svg+xml" href="favicon.svg"/>
+  <link rel="apple-touch-icon" href="favicon.svg"/>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"Rotate PDF — PDFQuick","url":"https://pdfquick-dun.vercel.app/rotate.html","description":"Rotate PDF pages online for free.","applicationCategory":"UtilitiesApplication","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}</script>
+  <link rel="stylesheet" href="style.css"/>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+</head>
+<body>
+
+  <nav class="navbar">
+    <div class="nav-inner">
+      <a href="index.html" class="logo"><span class="logo-icon">⚡</span>PDFQuick</a>
+      <div class="nav-links" id="nav-auth-area"></div>
+    </div>
+  </nav>
+
+  <main class="tool-main">
+    <div class="tool-inner">
+
+      <div class="tool-header">
+        <div class="tool-header-icon">🔄</div>
+        <h1>Rotate PDF</h1>
+        <p>Rotate all pages or specific pages of your PDF by any angle.</p>
+      </div>
+
+      <div class="upload-zone" id="upload-zone">
+        <input type="file" id="file-input" accept=".pdf" hidden/>
+        <div class="upload-zone-inner" onclick="document.getElementById('file-input').click()">
+          <div class="upload-icon">📂</div>
+          <p class="upload-text">Click to select a PDF file</p>
+          <p class="upload-hint">or drag & drop here</p>
+          <button class="btn btn-primary" type="button">Select PDF File</button>
+        </div>
+      </div>
+
+      <div id="file-panel" class="file-list-section hidden">
+        <div class="file-list-header">
+          <h3>Selected File</h3>
+          <button class="btn btn-ghost btn-sm" onclick="clearFile()">Clear</button>
+        </div>
+        <ul class="file-list">
+          <li>
+            <span class="file-list-icon">📄</span>
+            <span class="file-list-name" id="file-name-display">file.pdf</span>
+            <span class="file-list-size" id="page-count-display">? pages</span>
+          </li>
+        </ul>
+
+        <div class="compress-options">
+          <h3>Rotation Options</h3>
+
+          <!-- Which pages -->
+          <div class="compress-levels" style="margin-bottom:16px;">
+            <label class="compress-level active">
+              <input type="radio" name="pages" value="all" checked onchange="setPagesMode(this)"/>
+              <div class="level-info"><span class="level-name">All pages</span><span class="level-desc">Rotate every page in the document</span></div>
+            </label>
+            <label class="compress-level">
+              <input type="radio" name="pages" value="range" onchange="setPagesMode(this)"/>
+              <div class="level-info"><span class="level-name">Specific pages</span><span class="level-desc">Choose which pages to rotate</span></div>
+            </label>
+          </div>
+
+          <div id="range-input" class="hidden" style="margin-bottom:16px;">
+            <div class="form-group">
+              <label>Page range (e.g. 1-3 or 1,3,5)</label>
+              <input type="text" id="page-range" placeholder="e.g. 1-3 or 1,3,5" style="padding:11px 14px;border:1.5px solid var(--border);border-radius:8px;font-size:14px;font-family:inherit;outline:none;width:100%;"/>
+            </div>
+          </div>
+
+          <!-- Rotation angle -->
+          <h3 style="margin-bottom:12px;">Rotation Angle</h3>
+          <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:8px;">
+            <button class="rotate-btn active-rot" data-deg="90" onclick="setAngle(this)" style="padding:14px 8px;border:1.5px solid var(--brand);background:var(--brand-light);border-radius:8px;cursor:pointer;font-size:13px;font-weight:600;color:var(--brand);text-align:center;">↻ 90°</button>
+            <button class="rotate-btn" data-deg="180" onclick="setAngle(this)" style="padding:14px 8px;border:1.5px solid var(--border);background:#fff;border-radius:8px;cursor:pointer;font-size:13px;font-weight:600;color:var(--text-muted);text-align:center;">↻ 180°</button>
+            <button class="rotate-btn" data-deg="270" onclick="setAngle(this)" style="padding:14px 8px;border:1.5px solid var(--border);background:#fff;border-radius:8px;cursor:pointer;font-size:13px;font-weight:600;color:var(--text-muted);text-align:center;">↻ 270°</button>
+            <button class="rotate-btn" data-deg="-90" onclick="setAngle(this)" style="padding:14px 8px;border:1.5px solid var(--border);background:#fff;border-radius:8px;cursor:pointer;font-size:13px;font-weight:600;color:var(--text-muted);text-align:center;">↺ 90°</button>
+          </div>
+        </div>
+
+        <div class="merge-actions">
+          <button class="btn btn-primary btn-lg" onclick="rotatePDF()" id="rotate-btn">
+            🔄 Rotate PDF
+          </button>
+          <p class="merge-hint">Processing happens in your browser — your file is never uploaded</p>
+        </div>
+      </div>
+
+      <div id="result-section" class="result-section hidden">
+        <div class="result-card">
+          <div class="result-icon">✅</div>
+          <h3>Rotation Complete!</h3>
+          <p id="result-info">Your rotated PDF is ready.</p>
+          <div class="result-actions">
+            <a id="download-link" class="btn btn-primary btn-lg" download="rotated.pdf">⬇️ Download Rotated PDF</a>
+            <button class="btn btn-ghost" onclick="resetTool()">Rotate another</button>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+  <footer class="footer-main">
+    <div class="footer-inner">
+      <div class="footer-brand"><div class="logo" style="margin-bottom:10px;color:#fff;"><span class="logo-icon">⚡</span>PDFQuick</div><p>Free PDF tools that work right in your browser.</p></div>
+      <div class="footer-links">
+        <div class="footer-col"><h4>Tools</h4><a href="merge.html">Merge PDF</a><a href="compress.html">Compress PDF</a><a href="split.html">Split PDF</a><a href="protect.html">Protect PDF</a><a href="pdf-to-image.html">PDF to Image</a><a href="image-to-pdf.html">Image to PDF</a><a href="watermark.html">Watermark PDF</a><a href="rotate.html">Rotate PDF</a></div>
+        <div class="footer-col"><h4>Account</h4><a href="login.html">Login</a><a href="login.html#signup">Sign Up Free</a><a href="dashboard.html">Dashboard</a></div>
+        <div class="footer-col"><h4>Legal</h4><a href="privacy.html">Privacy Policy</a><a href="terms.html">Terms of Service</a></div>
+      </div>
+    </div>
+    <div class="footer-bottom"><p>© 2025 PDFQuick · All files processed locally · Your privacy is protected</p></div>
+  </footer>
+
+  <script src="https://unpkg.com/pdf-lib@1.17.1/dist/pdf-lib.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="supabase.js"></script>
+  <script src="script.js"></script>
+  <script>
+    let selectedFile = null;
+    let rotationAngle = 90;
+    let pagesMode = 'all';
+    let totalPages = 0;
+
+    function setAngle(btn) {
+      rotationAngle = parseInt(btn.dataset.deg);
+      document.querySelectorAll('.rotate-btn').forEach(b => {
+        b.style.borderColor = 'var(--border)';
+        b.style.background = '#fff';
+        b.style.color = 'var(--text-muted)';
+      });
+      btn.style.borderColor = 'var(--brand)';
+      btn.style.background = 'var(--brand-light)';
+      btn.style.color = 'var(--brand)';
+    }
+
+    function setPagesMode(radio) {
+      pagesMode = radio.value;
+      document.querySelectorAll('.compress-level').forEach(l => l.classList.remove('active'));
+      radio.closest('.compress-level').classList.add('active');
+      document.getElementById('range-input').classList.toggle('hidden', pagesMode !== 'range');
+    }
+
+    function parsePageRange(input, total) {
+      const pages = new Set();
+      input.split(',').forEach(part => {
+        part = part.trim();
+        if (part.includes('-')) {
+          const [s, e] = part.split('-').map(Number);
+          for (let i = s; i <= Math.min(e, total); i++) pages.add(i - 1);
+        } else {
+          const n = parseInt(part);
+          if (n >= 1 && n <= total) pages.add(n - 1);
+        }
+      });
+      return Array.from(pages);
+    }
+
+    document.getElementById('file-input').addEventListener('change', async function() {
+      if (this.files[0]) {
+        selectedFile = this.files[0];
+        document.getElementById('file-name-display').textContent = selectedFile.name;
+        const bytes = await selectedFile.arrayBuffer();
+        const pdf = await PDFLib.PDFDocument.load(bytes);
+        totalPages = pdf.getPageCount();
+        document.getElementById('page-count-display').textContent = totalPages + ' pages';
+        document.getElementById('file-panel').classList.remove('hidden');
+      }
+    });
+
+    const zone = document.getElementById('upload-zone');
+    zone.addEventListener('dragover', e => { e.preventDefault(); zone.classList.add('drag-over'); });
+    zone.addEventListener('dragleave', () => zone.classList.remove('drag-over'));
+    zone.addEventListener('drop', async e => {
+      e.preventDefault(); zone.classList.remove('drag-over');
+      const f = e.dataTransfer.files[0];
+      if (f && f.type === 'application/pdf') {
+        selectedFile = f;
+        document.getElementById('file-name-display').textContent = f.name;
+        const bytes = await f.arrayBuffer();
+        const pdf = await PDFLib.PDFDocument.load(bytes);
+        totalPages = pdf.getPageCount();
+        document.getElementById('page-count-display').textContent = totalPages + ' pages';
+        document.getElementById('file-panel').classList.remove('hidden');
+      }
+    });
+
+    function clearFile() {
+      selectedFile = null;
+      document.getElementById('file-input').value = '';
+      document.getElementById('file-panel').classList.add('hidden');
+    }
+
+    async function rotatePDF() {
+      if (!selectedFile) return;
+      const btn = document.getElementById('rotate-btn');
+      btn.textContent = '⏳ Rotating...';
+      btn.disabled = true;
+
+      try {
+        const bytes = await selectedFile.arrayBuffer();
+        const pdfDoc = await PDFLib.PDFDocument.load(bytes);
+        const pages = pdfDoc.getPages();
+
+        let pagesToRotate;
+        if (pagesMode === 'all') {
+          pagesToRotate = pages.map((_, i) => i);
+        } else {
+          const rangeInput = document.getElementById('page-range').value;
+          if (!rangeInput.trim()) { alert('Please enter a page range.'); btn.textContent = '🔄 Rotate PDF'; btn.disabled = false; return; }
+          pagesToRotate = parsePageRange(rangeInput, totalPages);
+        }
+
+        pagesToRotate.forEach(idx => {
+          const page = pages[idx];
+          const current = page.getRotation().angle;
+          let newAngle = (current + rotationAngle) % 360;
+          if (newAngle < 0) newAngle += 360;
+          page.setRotation(PDFLib.degrees(newAngle));
+        });
+
+        const pdfBytes = await pdfDoc.save();
+        const blob = new Blob([pdfBytes], { type: 'application/pdf' });
+        const url = URL.createObjectURL(blob);
+
+        document.getElementById('download-link').href = url;
+        const dir = rotationAngle > 0 ? '↻' : '↺';
+        document.getElementById('result-info').textContent =
+          `${dir} ${Math.abs(rotationAngle)}° rotation applied to ${pagesToRotate.length} page${pagesToRotate.length > 1 ? 's' : ''}`;
+
+        document.getElementById('file-panel').classList.add('hidden');
+        document.getElementById('upload-zone').classList.add('hidden');
+        document.getElementById('result-section').classList.remove('hidden');
+
+        saveFileRecord('rotated.pdf', pdfBytes.length);
+      } catch (err) {
+        alert('Error rotating PDF: ' + err.message);
+      }
+
+      btn.textContent = '🔄 Rotate PDF';
+      btn.disabled = false;
+    }
+
+    function resetTool() {
+      selectedFile = null;
+      document.getElementById('file-input').value = '';
+      document.getElementById('result-section').classList.add('hidden');
+      document.getElementById('upload-zone').classList.remove('hidden');
+    }
+  </script>
+</body>
+</html>

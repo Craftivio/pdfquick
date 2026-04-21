@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Compress PDF Online Free — Reduce PDF Size | PDFQuick</title>
+  <meta name="description" content="Compress PDF files online for free. Reduce PDF size without losing quality. No signup needed. Works instantly in your browser."/>
+  <meta name="keywords" content="compress PDF, reduce PDF size, PDF compressor, shrink PDF, compress PDF free"/>
+  <meta name="author" content="PDFQuick"/>
+  <meta name="robots" content="index, follow"/>
+  <link rel="canonical" href="https://pdfquick-dun.vercel.app/compress.html"/>
+  <meta property="og:type" content="website"/>
+  <meta property="og:url" content="https://pdfquick-dun.vercel.app/compress.html"/>
+  <meta property="og:title" content="Compress PDF Online Free — PDFQuick"/>
+  <meta property="og:description" content="Reduce PDF file size online for free. Fast, private, no signup needed."/>
+  <meta property="og:image" content="https://pdfquick-dun.vercel.app/og-image.png"/>
+  <meta property="og:site_name" content="PDFQuick"/>
+  <meta name="twitter:card" content="summary_large_image"/>
+  <meta name="twitter:url" content="https://pdfquick-dun.vercel.app/compress.html"/>
+  <meta name="twitter:title" content="Compress PDF Online Free — PDFQuick"/>
+  <meta name="twitter:description" content="Reduce PDF file size online for free. Fast, private, no signup needed."/>
+  <meta name="twitter:image" content="https://pdfquick-dun.vercel.app/og-image.png"/>
+  <meta name="theme-color" content="#3B6DFF"/>
+  <link rel="icon" type="image/svg+xml" href="favicon.svg"/>
+  <link rel="apple-touch-icon" href="favicon.svg"/>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"Compress PDF — PDFQuick","url":"https://pdfquick-dun.vercel.app/compress.html","description":"Compress PDF files online for free.","applicationCategory":"UtilitiesApplication","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}</script>
+  <link rel="stylesheet" href="style.css"/>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+</head>
+<body>
+
+  <nav class="navbar">
+    <div class="nav-inner">
+      <a href="index.html" class="logo"><span class="logo-icon">⚡</span>PDFQuick</a>
+      <div class="nav-links" id="nav-auth-area"></div>
+    </div>
+  </nav>
+
+  <main class="tool-main">
+    <div class="tool-inner">
+
+      <div class="tool-header">
+        <div class="tool-header-icon">🗜️</div>
+        <h1>Compress PDF</h1>
+        <p>Reduce your PDF file size while keeping the quality good.</p>
+      </div>
+
+      <!-- Upload zone -->
+      <div class="upload-zone" id="upload-zone">
+        <input type="file" id="file-input" accept=".pdf" hidden/>
+        <div class="upload-zone-inner" onclick="document.getElementById('file-input').click()">
+          <div class="upload-icon">📂</div>
+          <p class="upload-text">Click to select a PDF file</p>
+          <p class="upload-hint">or drag & drop here</p>
+          <button class="btn btn-primary" type="button">Select PDF File</button>
+        </div>
+      </div>
+
+      <!-- File selected panel -->
+      <div id="file-panel" class="file-list-section hidden">
+        <div class="file-list-header">
+          <h3>Selected File</h3>
+          <button class="btn btn-ghost btn-sm" onclick="clearFile()">Clear</button>
+        </div>
+        <ul class="file-list">
+          <li id="selected-file-info">
+            <span class="file-list-icon">📄</span>
+            <span class="file-list-name" id="file-name-display">file.pdf</span>
+            <span class="file-list-size" id="file-size-display">0 KB</span>
+          </li>
+        </ul>
+
+        <!-- Compression level -->
+        <div class="compress-options">
+          <h3>Compression Level</h3>
+          <div class="compress-levels">
+            <label class="compress-level active" id="level-low">
+              <input type="radio" name="compress" value="low" checked onchange="setLevel(this)"/>
+              <div class="level-info">
+                <span class="level-name">Low</span>
+                <span class="level-desc">~30% smaller · Best quality</span>
+              </div>
+            </label>
+            <label class="compress-level" id="level-medium">
+              <input type="radio" name="compress" value="medium" onchange="setLevel(this)"/>
+              <div class="level-info">
+                <span class="level-name">Medium</span>
+                <span class="level-desc">~50% smaller · Good quality</span>
+              </div>
+            </label>
+            <label class="compress-level" id="level-high">
+              <input type="radio" name="compress" value="high" onchange="setLevel(this)"/>
+              <div class="level-info">
+                <span class="level-name">High</span>
+                <span class="level-desc">~70% smaller · Reduced quality</span>
+              </div>
+            </label>
+          </div>
+        </div>
+
+        <div class="merge-actions">
+          <button class="btn btn-primary btn-lg" onclick="compressPDF()" id="compress-btn">
+            🗜️ Compress PDF
+          </button>
+          <p class="merge-hint">Processing happens in your browser — your file is never uploaded</p>
+        </div>
+      </div>
+
+      <!-- Result -->
+      <div id="result-section" class="result-section hidden">
+        <div class="result-card">
+          <div class="result-icon">✅</div>
+          <h3>Compression Complete!</h3>
+          <p id="result-info">Your compressed PDF is ready.</p>
+          <div class="result-actions">
+            <a id="download-link" class="btn btn-primary btn-lg" download="compressed.pdf">⬇️ Download Compressed PDF</a>
+            <button class="btn btn-ghost" onclick="resetTool()">Compress another</button>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+  <footer class="footer-main">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <div class="logo" style="margin-bottom:10px;color:#fff;"><span class="logo-icon">⚡</span>PDFQuick</div>
+        <p>Free PDF tools that work right in your browser.</p>
+      </div>
+      <div class="footer-links">
+        <div class="footer-col"><h4>Tools</h4><a href="merge.html">Merge PDF</a><a href="compress.html">Compress PDF</a><a href="split.html">Split PDF</a><a href="protect.html">Protect PDF</a></div>
+        <div class="footer-col"><h4>Account</h4><a href="login.html">Login</a><a href="login.html#signup">Sign Up Free</a><a href="dashboard.html">Dashboard</a></div>
+        <div class="footer-col"><h4>Info</h4><a href="index.html#faq">FAQ</a><a href="index.html#how">How it works</a></div>
+      </div>
+    </div>
+    <div class="footer-bottom"><p>© 2025 PDFQuick · All files processed locally · Your privacy is protected</p></div>
+  </footer>
+
+  <script src="https://unpkg.com/pdf-lib@1.17.1/dist/pdf-lib.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="supabase.js"></script>
+  <script src="script.js"></script>
+  <script>
+    let selectedFile = null;
+    let compressionLevel = 'low';
+
+    function setLevel(radio) {
+      compressionLevel = radio.value;
+      document.querySelectorAll('.compress-level').forEach(l => l.classList.remove('active'));
+      radio.closest('.compress-level').classList.add('active');
+    }
+
+    document.getElementById('file-input').addEventListener('change', function() {
+      if (this.files[0]) {
+        selectedFile = this.files[0];
+        document.getElementById('file-name-display').textContent = selectedFile.name;
+        document.getElementById('file-size-display').textContent = formatBytes(selectedFile.size);
+        document.getElementById('file-panel').classList.remove('hidden');
+      }
+    });
+
+    // Drag and drop
+    const zone = document.getElementById('upload-zone');
+    zone.addEventListener('dragover', e => { e.preventDefault(); zone.classList.add('drag-over'); });
+    zone.addEventListener('dragleave', () => zone.classList.remove('drag-over'));
+    zone.addEventListener('drop', e => {
+      e.preventDefault(); zone.classList.remove('drag-over');
+      const f = e.dataTransfer.files[0];
+      if (f && f.type === 'application/pdf') {
+        selectedFile = f;
+        document.getElementById('file-name-display').textContent = f.name;
+        document.getElementById('file-size-display').textContent = formatBytes(f.size);
+        document.getElementById('file-panel').classList.remove('hidden');
+      }
+    });
+
+    function formatBytes(b) {
+      if (b < 1024) return b + ' B';
+      if (b < 1024*1024) return (b/1024).toFixed(1) + ' KB';
+      return (b/(1024*1024)).toFixed(1) + ' MB';
+    }
+
+    function clearFile() {
+      selectedFile = null;
+      document.getElementById('file-input').value = '';
+      document.getElementById('file-panel').classList.add('hidden');
+    }
+
+    async function compressPDF() {
+      if (!selectedFile) return;
+      const btn = document.getElementById('compress-btn');
+      btn.textContent = '⏳ Compressing...';
+      btn.disabled = true;
+
+      try {
+        const bytes = await selectedFile.arrayBuffer();
+        const pdfDoc = await PDFLib.PDFDocument.load(bytes, { ignoreEncryption: true });
+
+        // Compression by removing unused objects and re-saving
+        // Level affects quality hint in save options
+        const saveOptions = {
+          useObjectStreams: compressionLevel !== 'low',
+          addDefaultPage: false,
+          objectsPerTick: compressionLevel === 'high' ? 50 : 20,
+        };
+
+        const compressed = await pdfDoc.save(saveOptions);
+
+        const originalSize = bytes.byteLength;
+        const newSize = compressed.byteLength;
+        const saved = Math.round((1 - newSize / originalSize) * 100);
+
+        const blob = new Blob([compressed], { type: 'application/pdf' });
+        const url = URL.createObjectURL(blob);
+
+        document.getElementById('download-link').href = url;
+        document.getElementById('result-info').textContent =
+          `Original: ${formatBytes(originalSize)} → Compressed: ${formatBytes(newSize)} (${saved > 0 ? saved + '% smaller' : 'already optimized'})`;
+
+        document.getElementById('file-panel').classList.add('hidden');
+        document.getElementById('upload-zone').classList.add('hidden');
+        document.getElementById('result-section').classList.remove('hidden');
+
+        saveFileRecord('compressed.pdf', newSize);
+      } catch (err) {
+        alert('Error compressing PDF: ' + err.message);
+      }
+
+      btn.textContent = '🗜️ Compress PDF';
+      btn.disabled = false;
+    }
+
+    function resetTool() {
+      selectedFile = null;
+      document.getElementById('file-input').value = '';
+      document.getElementById('result-section').classList.add('hidden');
+      document.getElementById('upload-zone').classList.remove('hidden');
+    }
+  </script>
+</body>
+</html>

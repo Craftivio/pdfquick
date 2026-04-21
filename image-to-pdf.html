@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Image to PDF Online Free — Convert JPG/PNG to PDF | PDFQuick</title>
+  <meta name="description" content="Convert JPG, PNG or any images to PDF online for free. Combine multiple images into one PDF. No signup needed. Works instantly in your browser."/>
+  <meta name="keywords" content="image to PDF, JPG to PDF, PNG to PDF, convert image to PDF free, photos to PDF"/>
+  <meta name="author" content="PDFQuick"/>
+  <meta name="robots" content="index, follow"/>
+  <link rel="canonical" href="https://pdfquick-dun.vercel.app/image-to-pdf.html"/>
+  <meta property="og:type" content="website"/>
+  <meta property="og:url" content="https://pdfquick-dun.vercel.app/image-to-pdf.html"/>
+  <meta property="og:title" content="Image to PDF Online Free — PDFQuick"/>
+  <meta property="og:description" content="Convert JPG/PNG images to PDF online for free. Fast, private, no signup needed."/>
+  <meta property="og:image" content="https://pdfquick-dun.vercel.app/og-image.png"/>
+  <meta property="og:site_name" content="PDFQuick"/>
+  <meta name="twitter:card" content="summary_large_image"/>
+  <meta name="twitter:title" content="Image to PDF Online Free — PDFQuick"/>
+  <meta name="twitter:description" content="Convert JPG/PNG images to PDF online for free."/>
+  <meta name="twitter:image" content="https://pdfquick-dun.vercel.app/og-image.png"/>
+  <meta name="theme-color" content="#3B6DFF"/>
+  <link rel="icon" type="image/svg+xml" href="favicon.svg"/>
+  <link rel="apple-touch-icon" href="favicon.svg"/>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"Image to PDF — PDFQuick","url":"https://pdfquick-dun.vercel.app/image-to-pdf.html","description":"Convert images to PDF online for free.","applicationCategory":"UtilitiesApplication","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}</script>
+  <link rel="stylesheet" href="style.css"/>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+</head>
+<body>
+
+  <nav class="navbar">
+    <div class="nav-inner">
+      <a href="index.html" class="logo"><span class="logo-icon">⚡</span>PDFQuick</a>
+      <div class="nav-links" id="nav-auth-area"></div>
+    </div>
+  </nav>
+
+  <main class="tool-main">
+    <div class="tool-inner">
+
+      <div class="tool-header">
+        <div class="tool-header-icon">📸</div>
+        <h1>Image to PDF</h1>
+        <p>Convert JPG, PNG or any images into a PDF file instantly.</p>
+      </div>
+
+      <div class="upload-zone" id="upload-zone">
+        <input type="file" id="file-input" multiple accept="image/*" hidden/>
+        <div class="upload-zone-inner" onclick="document.getElementById('file-input').click()">
+          <div class="upload-icon">🖼️</div>
+          <p class="upload-text">Click to select images</p>
+          <p class="upload-hint">JPG, PNG, WebP, GIF — drag & drop here</p>
+          <button class="btn btn-primary" type="button">Select Images</button>
+        </div>
+      </div>
+
+      <div id="file-panel" class="file-list-section hidden">
+        <div class="file-list-header">
+          <h3>Selected Images <span id="file-count" class="file-count-badge">0</span></h3>
+          <button class="btn btn-ghost btn-sm" onclick="clearFiles()">Clear all</button>
+        </div>
+
+        <!-- Image previews grid -->
+        <div id="image-grid" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(120px,1fr));gap:10px;margin-bottom:20px;"></div>
+
+        <div class="compress-options">
+          <h3>Page Size</h3>
+          <div class="compress-levels">
+            <label class="compress-level active">
+              <input type="radio" name="pagesize" value="fit" checked onchange="setPageSize(this)"/>
+              <div class="level-info"><span class="level-name">Fit to image</span><span class="level-desc">Each page fits the image size</span></div>
+            </label>
+            <label class="compress-level">
+              <input type="radio" name="pagesize" value="a4" onchange="setPageSize(this)"/>
+              <div class="level-info"><span class="level-name">A4 page</span><span class="level-desc">Standard A4 (210×297mm)</span></div>
+            </label>
+          </div>
+        </div>
+
+        <div class="merge-actions">
+          <button class="btn btn-primary btn-lg" onclick="convertToPDF()" id="convert-btn">
+            📄 Convert to PDF
+          </button>
+          <p class="merge-hint">Images will be added in the order shown above</p>
+        </div>
+      </div>
+
+      <div id="result-section" class="result-section hidden">
+        <div class="result-card">
+          <div class="result-icon">✅</div>
+          <h3>Conversion Complete!</h3>
+          <p id="result-info">Your PDF is ready.</p>
+          <div class="result-actions">
+            <a id="download-link" class="btn btn-primary btn-lg" download="images.pdf">⬇️ Download PDF</a>
+            <button class="btn btn-ghost" onclick="resetTool()">Convert more images</button>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+  <footer class="footer-main">
+    <div class="footer-inner">
+      <div class="footer-brand"><div class="logo" style="margin-bottom:10px;color:#fff;"><span class="logo-icon">⚡</span>PDFQuick</div><p>Free PDF tools that work right in your browser.</p></div>
+      <div class="footer-links">
+        <div class="footer-col"><h4>Tools</h4><a href="merge.html">Merge PDF</a><a href="compress.html">Compress PDF</a><a href="split.html">Split PDF</a><a href="protect.html">Protect PDF</a><a href="pdf-to-image.html">PDF to Image</a><a href="image-to-pdf.html">Image to PDF</a><a href="watermark.html">Watermark PDF</a><a href="rotate.html">Rotate PDF</a></div>
+        <div class="footer-col"><h4>Account</h4><a href="login.html">Login</a><a href="login.html#signup">Sign Up Free</a><a href="dashboard.html">Dashboard</a></div>
+        <div class="footer-col"><h4>Legal</h4><a href="privacy.html">Privacy Policy</a><a href="terms.html">Terms of Service</a></div>
+      </div>
+    </div>
+    <div class="footer-bottom"><p>© 2025 PDFQuick · All files processed locally · Your privacy is protected</p></div>
+  </footer>
+
+  <script src="https://unpkg.com/pdf-lib@1.17.1/dist/pdf-lib.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="supabase.js"></script>
+  <script src="script.js"></script>
+  <script>
+    let selectedFiles = [];
+    let pageSizeMode = 'fit';
+
+    function setPageSize(radio) {
+      pageSizeMode = radio.value;
+      document.querySelectorAll('.compress-level').forEach(l => l.classList.remove('active'));
+      radio.closest('.compress-level').classList.add('active');
+    }
+
+    function formatBytes(b) {
+      if (b < 1024) return b + ' B';
+      if (b < 1024*1024) return (b/1024).toFixed(1) + ' KB';
+      return (b/(1024*1024)).toFixed(1) + ' MB';
+    }
+
+    function renderGrid() {
+      const grid = document.getElementById('image-grid');
+      const countEl = document.getElementById('file-count');
+      countEl.textContent = selectedFiles.length;
+      grid.innerHTML = selectedFiles.map((f, i) => {
+        const url = URL.createObjectURL(f);
+        return `
+          <div style="border:1.5px solid var(--border);border-radius:8px;overflow:hidden;position:relative;">
+            <img src="${url}" style="width:100%;height:100px;object-fit:cover;display:block;" alt="${f.name}"/>
+            <div style="padding:6px;background:var(--bg-alt);font-size:11px;color:var(--text-muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">${f.name}</div>
+            <button onclick="removeImage(${i})" style="position:absolute;top:4px;right:4px;background:rgba(0,0,0,0.5);color:#fff;border:none;border-radius:50%;width:20px;height:20px;cursor:pointer;font-size:11px;display:flex;align-items:center;justify-content:center;">✕</button>
+          </div>`;
+      }).join('');
+    }
+
+    function removeImage(index) {
+      selectedFiles.splice(index, 1);
+      if (selectedFiles.length === 0) {
+        document.getElementById('file-panel').classList.add('hidden');
+      } else {
+        renderGrid();
+      }
+    }
+
+    function clearFiles() {
+      selectedFiles = [];
+      document.getElementById('file-input').value = '';
+      document.getElementById('file-panel').classList.add('hidden');
+    }
+
+    document.getElementById('file-input').addEventListener('change', function() {
+      const newFiles = Array.from(this.files).filter(f => f.type.startsWith('image/'));
+      selectedFiles = [...selectedFiles, ...newFiles];
+      if (selectedFiles.length > 0) {
+        document.getElementById('file-panel').classList.remove('hidden');
+        renderGrid();
+      }
+    });
+
+    const zone = document.getElementById('upload-zone');
+    zone.addEventListener('dragover', e => { e.preventDefault(); zone.classList.add('drag-over'); });
+    zone.addEventListener('dragleave', () => zone.classList.remove('drag-over'));
+    zone.addEventListener('drop', e => {
+      e.preventDefault(); zone.classList.remove('drag-over');
+      const newFiles = Array.from(e.dataTransfer.files).filter(f => f.type.startsWith('image/'));
+      selectedFiles = [...selectedFiles, ...newFiles];
+      if (selectedFiles.length > 0) {
+        document.getElementById('file-panel').classList.remove('hidden');
+        renderGrid();
+      }
+    });
+
+    async function convertToPDF() {
+      if (selectedFiles.length === 0) return;
+      const btn = document.getElementById('convert-btn');
+      btn.textContent = '⏳ Converting...';
+      btn.disabled = true;
+
+      try {
+        const pdfDoc = await PDFLib.PDFDocument.create();
+
+        for (const file of selectedFiles) {
+          const arrayBuffer = await file.arrayBuffer();
+          const uint8 = new Uint8Array(arrayBuffer);
+
+          let img;
+          if (file.type === 'image/png') {
+            img = await pdfDoc.embedPng(uint8);
+          } else {
+            img = await pdfDoc.embedJpg(uint8);
+          }
+
+          let page;
+          if (pageSizeMode === 'a4') {
+            page = pdfDoc.addPage([595.28, 841.89]);
+            const scale = Math.min(595.28 / img.width, 841.89 / img.height);
+            const w = img.width * scale;
+            const h = img.height * scale;
+            page.drawImage(img, { x: (595.28 - w) / 2, y: (841.89 - h) / 2, width: w, height: h });
+          } else {
+            page = pdfDoc.addPage([img.width, img.height]);
+            page.drawImage(img, { x: 0, y: 0, width: img.width, height: img.height });
+          }
+        }
+
+        const pdfBytes = await pdfDoc.save();
+        const blob = new Blob([pdfBytes], { type: 'application/pdf' });
+        const url = URL.createObjectURL(blob);
+
+        document.getElementById('download-link').href = url;
+        document.getElementById('result-info').textContent =
+          `${selectedFiles.length} image${selectedFiles.length > 1 ? 's' : ''} converted · ${formatBytes(pdfBytes.length)}`;
+
+        document.getElementById('file-panel').classList.add('hidden');
+        document.getElementById('upload-zone').classList.add('hidden');
+        document.getElementById('result-section').classList.remove('hidden');
+
+        saveFileRecord('images.pdf', pdfBytes.length);
+      } catch (err) {
+        alert('Error: ' + err.message + '\n\nTip: PNG files work best. Try converting your images to PNG first.');
+        console.error(err);
+      }
+
+      btn.textContent = '📄 Convert to PDF';
+      btn.disabled = false;
+    }
+
+    function resetTool() {
+      selectedFiles = [];
+      document.getElementById('file-input').value = '';
+      document.getElementById('result-section').classList.add('hidden');
+      document.getElementById('upload-zone').classList.remove('hidden');
+    }
+  </script>
+</body>
+</html>

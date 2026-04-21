@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>My Dashboard — PDFQuick</title>
+  <meta name="description" content="View your PDF file history and access all PDFQuick tools from your personal dashboard."/>
+  <meta name="keywords" content="PDFQuick dashboard, my PDF files, PDF history"/>
+  <meta name="author" content="PDFQuick"/>
+  <meta name="robots" content="noindex, nofollow"/>
+  <link rel="canonical" href="https://pdfquick-dun.vercel.app/dashboard.html"/>
+  <meta property="og:type" content="website"/>
+  <meta property="og:url" content="https://pdfquick-dun.vercel.app/dashboard.html"/>
+  <meta property="og:title" content="My Dashboard — PDFQuick"/>
+  <meta property="og:description" content="View your PDF file history and access all PDFQuick tools."/>
+  <meta property="og:image" content="https://pdfquick-dun.vercel.app/og-image.png"/>
+  <meta property="og:site_name" content="PDFQuick"/>
+  <meta name="twitter:card" content="summary_large_image"/>
+  <meta name="twitter:url" content="https://pdfquick-dun.vercel.app/dashboard.html"/>
+  <meta name="twitter:title" content="My Dashboard — PDFQuick"/>
+  <meta name="twitter:description" content="View your PDF file history and access all PDFQuick tools."/>
+  <meta name="twitter:image" content="https://pdfquick-dun.vercel.app/og-image.png"/>
+  <meta name="theme-color" content="#3B6DFF"/>
+  <link rel="icon" type="image/svg+xml" href="favicon.svg"/>
+  <link rel="apple-touch-icon" href="favicon.svg"/>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"Dashboard — PDFQuick","url":"https://pdfquick-dun.vercel.app/dashboard.html"}</script>
+  <link rel="stylesheet" href="style.css"/>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+</head>
+<body>
+  <nav class="navbar">
+    <div class="nav-inner">
+      <a href="index.html" class="logo"><span class="logo-icon">⚡</span>PDFQuick</a>
+      <div class="nav-links">
+        <span id="user-email" class="user-email-display"></span>
+        <button class="btn btn-ghost" onclick="handleLogout()">Logout</button>
+      </div>
+    </div>
+  </nav>
+  <main class="dashboard-main">
+    <div class="dashboard-inner">
+      <div class="dashboard-header">
+        <div><h1>My Dashboard</h1><p class="dashboard-sub">Your recent PDF activity</p></div>
+        <a href="merge.html" class="btn btn-primary">+ Merge PDFs</a>
+      </div>
+      <div class="stats-row">
+        <div class="stat-card"><div class="stat-number" id="stat-total">0</div><div class="stat-label">Files Processed</div></div>
+        <div class="stat-card"><div class="stat-number">4</div><div class="stat-label">Tools Available</div></div>
+        <div class="stat-card"><div class="stat-number">Free</div><div class="stat-label">Current Plan</div></div>
+      </div>
+      <div class="dashboard-section">
+        <h2>Recent Files</h2>
+        <div id="files-list" class="files-list">
+          <div class="empty-state"><div class="empty-icon">📄</div><p>No files yet. <a href="merge.html">Merge your first PDF →</a></p></div>
+        </div>
+      </div>
+    </div>
+  </main>
+  <footer class="footer-main">
+    <div class="footer-inner">
+      <div class="footer-brand"><div class="logo" style="margin-bottom:10px;color:#fff;"><span class="logo-icon">⚡</span>PDFQuick</div><p>Free PDF tools that work right in your browser.</p></div>
+      <div class="footer-links">
+        <div class="footer-col"><h4>Tools</h4><a href="merge.html">Merge PDF</a><a href="compress.html">Compress PDF</a><a href="split.html">Split PDF</a><a href="protect.html">Protect PDF</a></div>
+        <div class="footer-col"><h4>Account</h4><a href="login.html">Login</a><a href="login.html#signup">Sign Up Free</a></div>
+        <div class="footer-col"><h4>Info</h4><a href="index.html#faq">FAQ</a><a href="index.html#how">How it works</a></div>
+      </div>
+    </div>
+    <div class="footer-bottom"><p>© 2025 PDFQuick · All files processed locally · Your privacy is protected</p></div>
+  </footer>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="supabase.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>PDF to Image Online Free — Convert PDF to JPG/PNG | PDFQuick</title>
+  <meta name="description" content="Convert PDF pages to JPG or PNG images online for free. No signup needed. Works instantly in your browser. 100% private."/>
+  <meta name="keywords" content="PDF to image, PDF to JPG, PDF to PNG, convert PDF to image free, PDF converter"/>
+  <meta name="author" content="PDFQuick"/>
+  <meta name="robots" content="index, follow"/>
+  <link rel="canonical" href="https://pdfquick-dun.vercel.app/pdf-to-image.html"/>
+  <meta property="og:type" content="website"/>
+  <meta property="og:url" content="https://pdfquick-dun.vercel.app/pdf-to-image.html"/>
+  <meta property="og:title" content="PDF to Image Online Free — PDFQuick"/>
+  <meta property="og:description" content="Convert PDF pages to JPG or PNG images for free. Fast, private, no signup needed."/>
+  <meta property="og:image" content="https://pdfquick-dun.vercel.app/og-image.png"/>
+  <meta property="og:site_name" content="PDFQuick"/>
+  <meta name="twitter:card" content="summary_large_image"/>
+  <meta name="twitter:title" content="PDF to Image Online Free — PDFQuick"/>
+  <meta name="twitter:description" content="Convert PDF pages to JPG or PNG images for free."/>
+  <meta name="twitter:image" content="https://pdfquick-dun.vercel.app/og-image.png"/>
+  <meta name="theme-color" content="#3B6DFF"/>
+  <link rel="icon" type="image/svg+xml" href="favicon.svg"/>
+  <link rel="apple-touch-icon" href="favicon.svg"/>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"PDF to Image — PDFQuick","url":"https://pdfquick-dun.vercel.app/pdf-to-image.html","description":"Convert PDF pages to JPG or PNG images online for free.","applicationCategory":"UtilitiesApplication","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}</script>
+  <link rel="stylesheet" href="style.css"/>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+</head>
+<body>
+
+  <nav class="navbar">
+    <div class="nav-inner">
+      <a href="index.html" class="logo"><span class="logo-icon">⚡</span>PDFQuick</a>
+      <div class="nav-links" id="nav-auth-area"></div>
+    </div>
+  </nav>
+
+  <main class="tool-main">
+    <div class="tool-inner">
+
+      <div class="tool-header">
+        <div class="tool-header-icon">🖼️</div>
+        <h1>PDF to Image</h1>
+        <p>Convert each PDF page into a JPG or PNG image instantly.</p>
+      </div>
+
+      <div class="upload-zone" id="upload-zone">
+        <input type="file" id="file-input" accept=".pdf" hidden/>
+        <div class="upload-zone-inner" onclick="document.getElementById('file-input').click()">
+          <div class="upload-icon">📂</div>
+          <p class="upload-text">Click to select a PDF file</p>
+          <p class="upload-hint">or drag & drop here</p>
+          <button class="btn btn-primary" type="button">Select PDF File</button>
+        </div>
+      </div>
+
+      <div id="file-panel" class="file-list-section hidden">
+        <div class="file-list-header">
+          <h3>Selected File</h3>
+          <button class="btn btn-ghost btn-sm" onclick="clearFile()">Clear</button>
+        </div>
+        <ul class="file-list">
+          <li>
+            <span class="file-list-icon">📄</span>
+            <span class="file-list-name" id="file-name-display">file.pdf</span>
+            <span class="file-list-size" id="page-count-display">? pages</span>
+          </li>
+        </ul>
+
+        <div class="compress-options">
+          <h3>Output Format & Quality</h3>
+          <div class="compress-levels">
+            <label class="compress-level active">
+              <input type="radio" name="format" value="jpeg" checked onchange="setFormat(this)"/>
+              <div class="level-info">
+                <span class="level-name">JPG</span>
+                <span class="level-desc">Smaller file size · Good for photos</span>
+              </div>
+            </label>
+            <label class="compress-level">
+              <input type="radio" name="format" value="png" onchange="setFormat(this)"/>
+              <div class="level-info">
+                <span class="level-name">PNG</span>
+                <span class="level-desc">Larger file size · Best quality</span>
+              </div>
+            </label>
+          </div>
+          <div style="margin-top:16px;">
+            <div class="form-group">
+              <label>Scale / Resolution</label>
+              <select id="scale-select" style="padding:11px 14px;border:1.5px solid var(--border);border-radius:8px;font-size:14px;font-family:inherit;outline:none;width:100%;background:#fff;cursor:pointer;">
+                <option value="1">Normal (72 DPI)</option>
+                <option value="2" selected>High (144 DPI) — Recommended</option>
+                <option value="3">Very High (216 DPI)</option>
+              </select>
+            </div>
+          </div>
+        </div>
+
+        <div class="merge-actions">
+          <button class="btn btn-primary btn-lg" onclick="convertToImages()" id="convert-btn">
+            🖼️ Convert to Images
+          </button>
+          <p class="merge-hint">Processing happens in your browser — your file is never uploaded</p>
+        </div>
+      </div>
+
+      <!-- Progress -->
+      <div id="progress-section" class="file-list-section hidden">
+        <div style="text-align:center;padding:32px;">
+          <div style="font-size:32px;margin-bottom:12px;">⏳</div>
+          <h3 id="progress-text">Converting page 1...</h3>
+          <div style="background:var(--bg-alt);border-radius:100px;height:8px;margin-top:16px;overflow:hidden;">
+            <div id="progress-bar" style="background:var(--brand);height:100%;width:0%;transition:width 0.3s;border-radius:100px;"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Results -->
+      <div id="result-section" class="result-section hidden">
+        <div class="result-card">
+          <div class="result-icon">✅</div>
+          <h3>Conversion Complete!</h3>
+          <p id="result-info">Your images are ready.</p>
+          <div id="image-previews" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:12px;margin:20px 0;text-align:left;"></div>
+          <div class="result-actions">
+            <button class="btn btn-primary btn-lg" onclick="downloadAll()" id="download-all-btn">⬇️ Download All Images</button>
+            <button class="btn btn-ghost" onclick="resetTool()">Convert another</button>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+  <footer class="footer-main">
+    <div class="footer-inner">
+      <div class="footer-brand"><div class="logo" style="margin-bottom:10px;color:#fff;"><span class="logo-icon">⚡</span>PDFQuick</div><p>Free PDF tools that work right in your browser.</p></div>
+      <div class="footer-links">
+        <div class="footer-col"><h4>Tools</h4><a href="merge.html">Merge PDF</a><a href="compress.html">Compress PDF</a><a href="split.html">Split PDF</a><a href="protect.html">Protect PDF</a><a href="pdf-to-image.html">PDF to Image</a><a href="image-to-pdf.html">Image to PDF</a><a href="watermark.html">Watermark PDF</a><a href="rotate.html">Rotate PDF</a></div>
+        <div class="footer-col"><h4>Account</h4><a href="login.html">Login</a><a href="login.html#signup">Sign Up Free</a><a href="dashboard.html">Dashboard</a></div>
+        <div class="footer-col"><h4>Legal</h4><a href="privacy.html">Privacy Policy</a><a href="terms.html">Terms of Service</a></div>
+      </div>
+    </div>
+    <div class="footer-bottom"><p>© 2025 PDFQuick · All files processed locally · Your privacy is protected</p></div>
+  </footer>
+
+  <!-- PDF.js for rendering PDF pages to canvas -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="supabase.js"></script>
+  <script src="script.js"></script>
+  <script>
+    pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';
+
+    let selectedFile = null;
+    let outputFormat = 'jpeg';
+    let convertedImages = [];
+
+    function setFormat(radio) {
+      outputFormat = radio.value;
+      document.querySelectorAll('.compress-level').forEach(l => l.classList.remove('active'));
+      radio.closest('.compress-level').classList.add('active');
+    }
+
+    document.getElementById('file-input').addEventListener('change', async function() {
+      if (this.files[0]) {
+        selectedFile = this.files[0];
+        document.getElementById('file-name-display').textContent = selectedFile.name;
+        const bytes = await selectedFile.arrayBuffer();
+        const pdf = await pdfjsLib.getDocument(bytes).promise;
+        document.getElementById('page-count-display').textContent = pdf.numPages + ' pages';
+        document.getElementById('file-panel').classList.remove('hidden');
+      }
+    });
+
+    const zone = document.getElementById('upload-zone');
+    zone.addEventListener('dragover', e => { e.preventDefault(); zone.classList.add('drag-over'); });
+    zone.addEventListener('dragleave', () => zone.classList.remove('drag-over'));
+    zone.addEventListener('drop', async e => {
+      e.preventDefault(); zone.classList.remove('drag-over');
+      const f = e.dataTransfer.files[0];
+      if (f && f.type === 'application/pdf') {
+        selectedFile = f;
+        document.getElementById('file-name-display').textContent = f.name;
+        const bytes = await f.arrayBuffer();
+        const pdf = await pdfjsLib.getDocument(bytes).promise;
+        document.getElementById('page-count-display').textContent = pdf.numPages + ' pages';
+        document.getElementById('file-panel').classList.remove('hidden');
+      }
+    });
+
+    function clearFile() {
+      selectedFile = null;
+      document.getElementById('file-input').value = '';
+      document.getElementById('file-panel').classList.add('hidden');
+    }
+
+    async function convertToImages() {
+      if (!selectedFile) return;
+      const scale = parseFloat(document.getElementById('scale-select').value);
+      const btn = document.getElementById('convert-btn');
+      btn.disabled = true;
+
+      document.getElementById('file-panel').classList.add('hidden');
+      document.getElementById('upload-zone').classList.add('hidden');
+      document.getElementById('progress-section').classList.remove('hidden');
+
+      try {
+        const bytes = await selectedFile.arrayBuffer();
+        const pdf = await pdfjsLib.getDocument(bytes).promise;
+        const total = pdf.numPages;
+        convertedImages = [];
+
+        for (let i = 1; i <= total; i++) {
+          document.getElementById('progress-text').textContent = `Converting page ${i} of ${total}...`;
+          document.getElementById('progress-bar').style.width = Math.round((i / total) * 100) + '%';
+
+          const page = await pdf.getPage(i);
+          const viewport = page.getViewport({ scale });
+          const canvas = document.createElement('canvas');
+          canvas.width = viewport.width;
+          canvas.height = viewport.height;
+          const ctx = canvas.getContext('2d');
+          await page.render({ canvasContext: ctx, viewport }).promise;
+
+          const mimeType = outputFormat === 'png' ? 'image/png' : 'image/jpeg';
+          const dataUrl = canvas.toDataURL(mimeType, 0.92);
+          convertedImages.push({ dataUrl, name: `page-${i}.${outputFormat === 'png' ? 'png' : 'jpg'}` });
+        }
+
+        // Show previews
+        const previewsEl = document.getElementById('image-previews');
+        previewsEl.innerHTML = convertedImages.map((img, i) => `
+          <div style="border:1.5px solid var(--border);border-radius:8px;overflow:hidden;">
+            <img src="${img.dataUrl}" style="width:100%;display:block;" alt="Page ${i+1}"/>
+            <div style="padding:8px;background:var(--bg-alt);">
+              <a href="${img.dataUrl}" download="${img.name}" class="btn btn-primary btn-sm" style="width:100%;justify-content:center;font-size:12px;">⬇️ Page ${i+1}</a>
+            </div>
+          </div>
+        `).join('');
+
+        document.getElementById('result-info').textContent = `${total} page${total > 1 ? 's' : ''} converted to ${outputFormat.toUpperCase()}`;
+        document.getElementById('progress-section').classList.add('hidden');
+        document.getElementById('result-section').classList.remove('hidden');
+
+        saveFileRecord('pdf-to-image', selectedFile.size);
+      } catch (err) {
+        alert('Error converting PDF: ' + err.message);
+        document.getElementById('progress-section').classList.add('hidden');
+        document.getElementById('upload-zone').classList.remove('hidden');
+        document.getElementById('file-panel').classList.remove('hidden');
+      }
+      btn.disabled = false;
+    }
+
+    async function downloadAll() {
+      for (let i = 0; i < convertedImages.length; i++) {
+        const a = document.createElement('a');
+        a.href = convertedImages[i].dataUrl;
+        a.download = convertedImages[i].name;
+        a.click();
+        await new Promise(r => setTimeout(r, 300));
+      }
+    }
+
+    function resetTool() {
+      selectedFile = null;
+      convertedImages = [];
+      document.getElementById('file-input').value = '';
+      document.getElementById('result-section').classList.add('hidden');
+      document.getElementById('upload-zone').classList.remove('hidden');
+    }
+  </script>
+</body>
+</html>

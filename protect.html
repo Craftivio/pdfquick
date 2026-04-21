@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Protect PDF with Password Online Free | PDFQuick</title>
+  <meta name="description" content="Add password protection to PDF files online for free. Secure your PDF instantly in your browser. No signup needed."/>
+  <meta name="keywords" content="protect PDF, password protect PDF, encrypt PDF, secure PDF, lock PDF free"/>
+  <meta name="author" content="PDFQuick"/>
+  <meta name="robots" content="index, follow"/>
+  <link rel="canonical" href="https://pdfquick-dun.vercel.app/protect.html"/>
+  <meta property="og:type" content="website"/>
+  <meta property="og:url" content="https://pdfquick-dun.vercel.app/protect.html"/>
+  <meta property="og:title" content="Protect PDF with Password — PDFQuick"/>
+  <meta property="og:description" content="Add password to PDF files online for free. Secure your PDFs instantly."/>
+  <meta property="og:image" content="https://pdfquick-dun.vercel.app/og-image.png"/>
+  <meta property="og:site_name" content="PDFQuick"/>
+  <meta name="twitter:card" content="summary_large_image"/>
+  <meta name="twitter:url" content="https://pdfquick-dun.vercel.app/protect.html"/>
+  <meta name="twitter:title" content="Protect PDF with Password — PDFQuick"/>
+  <meta name="twitter:description" content="Add password to PDF files online for free. Secure your PDFs instantly."/>
+  <meta name="twitter:image" content="https://pdfquick-dun.vercel.app/og-image.png"/>
+  <meta name="theme-color" content="#3B6DFF"/>
+  <link rel="icon" type="image/svg+xml" href="favicon.svg"/>
+  <link rel="apple-touch-icon" href="favicon.svg"/>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"Protect PDF — PDFQuick","url":"https://pdfquick-dun.vercel.app/protect.html","description":"Add password protection to PDF files online for free.","applicationCategory":"UtilitiesApplication","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}</script>
+  <link rel="stylesheet" href="style.css"/>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+</head>
+<body>
+
+  <nav class="navbar">
+    <div class="nav-inner">
+      <a href="index.html" class="logo"><span class="logo-icon">⚡</span>PDFQuick</a>
+      <div class="nav-links" id="nav-auth-area"></div>
+    </div>
+  </nav>
+
+  <main class="tool-main">
+    <div class="tool-inner">
+
+      <div class="tool-header">
+        <div class="tool-header-icon">🔒</div>
+        <h1>Protect PDF</h1>
+        <p>Add a password to your PDF to prevent unauthorized access.</p>
+      </div>
+
+      <!-- Upload zone -->
+      <div class="upload-zone" id="upload-zone">
+        <input type="file" id="file-input" accept=".pdf" hidden/>
+        <div class="upload-zone-inner" onclick="document.getElementById('file-input').click()">
+          <div class="upload-icon">📂</div>
+          <p class="upload-text">Click to select a PDF file</p>
+          <p class="upload-hint">or drag & drop here</p>
+          <button class="btn btn-primary" type="button">Select PDF File</button>
+        </div>
+      </div>
+
+      <!-- File + password panel -->
+      <div id="file-panel" class="file-list-section hidden">
+        <div class="file-list-header">
+          <h3>Selected File</h3>
+          <button class="btn btn-ghost btn-sm" onclick="clearFile()">Clear</button>
+        </div>
+        <ul class="file-list">
+          <li>
+            <span class="file-list-icon">📄</span>
+            <span class="file-list-name" id="file-name-display">file.pdf</span>
+            <span class="file-list-size" id="file-size-display">0 KB</span>
+          </li>
+        </ul>
+
+        <!-- Password input -->
+        <div class="compress-options">
+          <h3>Set Password</h3>
+          <div style="display:flex;flex-direction:column;gap:16px;">
+            <div class="form-group">
+              <label>Password</label>
+              <input type="password" id="pdf-password" placeholder="Enter a strong password" style="padding:11px 14px;border:1.5px solid var(--border);border-radius:8px;font-size:14px;font-family:inherit;outline:none;width:100%;transition:border-color 0.15s;" onfocus="this.style.borderColor='var(--brand)'" onblur="this.style.borderColor='var(--border)'"/>
+            </div>
+            <div class="form-group">
+              <label>Confirm Password</label>
+              <input type="password" id="pdf-password-confirm" placeholder="Confirm your password" style="padding:11px 14px;border:1.5px solid var(--border);border-radius:8px;font-size:14px;font-family:inherit;outline:none;width:100%;transition:border-color 0.15s;" onfocus="this.style.borderColor='var(--brand)'" onblur="this.style.borderColor='var(--border)'"/>
+            </div>
+            <div class="protect-warning">
+              🔑 <strong>Important:</strong> Remember your password — it cannot be recovered if lost.
+            </div>
+          </div>
+        </div>
+
+        <div class="merge-actions">
+          <button class="btn btn-primary btn-lg" onclick="protectPDF()" id="protect-btn">
+            🔒 Protect PDF
+          </button>
+          <p class="merge-hint">Processing happens in your browser — your file is never uploaded</p>
+        </div>
+      </div>
+
+      <!-- Result -->
+      <div id="result-section" class="result-section hidden">
+        <div class="result-card">
+          <div class="result-icon">🔒</div>
+          <h3>PDF Protected!</h3>
+          <p id="result-info">Your password-protected PDF is ready.</p>
+          <div class="result-actions">
+            <a id="download-link" class="btn btn-primary btn-lg" download="protected.pdf">⬇️ Download Protected PDF</a>
+            <button class="btn btn-ghost" onclick="resetTool()">Protect another</button>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+  <footer class="footer-main">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <div class="logo" style="margin-bottom:10px;color:#fff;"><span class="logo-icon">⚡</span>PDFQuick</div>
+        <p>Free PDF tools that work right in your browser.</p>
+      </div>
+      <div class="footer-links">
+        <div class="footer-col"><h4>Tools</h4><a href="merge.html">Merge PDF</a><a href="compress.html">Compress PDF</a><a href="split.html">Split PDF</a><a href="protect.html">Protect PDF</a></div>
+        <div class="footer-col"><h4>Account</h4><a href="login.html">Login</a><a href="login.html#signup">Sign Up Free</a><a href="dashboard.html">Dashboard</a></div>
+        <div class="footer-col"><h4>Info</h4><a href="index.html#faq">FAQ</a><a href="index.html#how">How it works</a></div>
+      </div>
+    </div>
+    <div class="footer-bottom"><p>© 2025 PDFQuick · All files processed locally · Your privacy is protected</p></div>
+  </footer>
+
+  <script src="https://unpkg.com/pdf-lib@1.17.1/dist/pdf-lib.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="supabase.js"></script>
+  <script src="script.js"></script>
+  <script>
+    let selectedFile = null;
+
+    function formatBytes(b) {
+      if (b < 1024) return b + ' B';
+      if (b < 1024*1024) return (b/1024).toFixed(1) + ' KB';
+      return (b/(1024*1024)).toFixed(1) + ' MB';
+    }
+
+    document.getElementById('file-input').addEventListener('change', function() {
+      if (this.files[0]) {
+        selectedFile = this.files[0];
+        document.getElementById('file-name-display').textContent = selectedFile.name;
+        document.getElementById('file-size-display').textContent = formatBytes(selectedFile.size);
+        document.getElementById('file-panel').classList.remove('hidden');
+      }
+    });
+
+    const zone = document.getElementById('upload-zone');
+    zone.addEventListener('dragover', e => { e.preventDefault(); zone.classList.add('drag-over'); });
+    zone.addEventListener('dragleave', () => zone.classList.remove('drag-over'));
+    zone.addEventListener('drop', e => {
+      e.preventDefault(); zone.classList.remove('drag-over');
+      const f = e.dataTransfer.files[0];
+      if (f && f.type === 'application/pdf') {
+        selectedFile = f;
+        document.getElementById('file-name-display').textContent = f.name;
+        document.getElementById('file-size-display').textContent = formatBytes(f.size);
+        document.getElementById('file-panel').classList.remove('hidden');
+      }
+    });
+
+    function clearFile() {
+      selectedFile = null;
+      document.getElementById('file-input').value = '';
+      document.getElementById('file-panel').classList.add('hidden');
+    }
+
+    async function protectPDF() {
+      const password = document.getElementById('pdf-password').value;
+      const confirm  = document.getElementById('pdf-password-confirm').value;
+
+      if (!selectedFile) { alert('Please select a PDF file.'); return; }
+      if (!password) { alert('Please enter a password.'); return; }
+      if (password !== confirm) { alert('Passwords do not match!'); return; }
+      if (password.length < 4) { alert('Password must be at least 4 characters.'); return; }
+
+      const btn = document.getElementById('protect-btn');
+      btn.textContent = '⏳ Protecting...';
+      btn.disabled = true;
+
+      try {
+        const bytes = await selectedFile.arrayBuffer();
+        const pdfDoc = await PDFLib.PDFDocument.load(bytes);
+
+        // Encrypt with user password
+        const protected_bytes = await pdfDoc.save({
+          userPassword: password,
+          ownerPassword: password + '_owner',
+          permissions: {
+            printing: 'highResolution',
+            modifying: false,
+            copying: false,
+            annotating: false,
+          },
+        });
+
+        const blob = new Blob([protected_bytes], { type: 'application/pdf' });
+        const url = URL.createObjectURL(blob);
+
+        document.getElementById('download-link').href = url;
+        document.getElementById('result-info').textContent =
+          `${selectedFile.name} is now password protected. Keep your password safe!`;
+
+        document.getElementById('file-panel').classList.add('hidden');
+        document.getElementById('upload-zone').classList.add('hidden');
+        document.getElementById('result-section').classList.remove('hidden');
+
+        saveFileRecord('protected.pdf', protected_bytes.byteLength);
+      } catch (err) {
+        alert('Error protecting PDF: ' + err.message);
+        console.error(err);
+      }
+
+      btn.textContent = '🔒 Protect PDF';
+      btn.disabled = false;
+    }
+
+    function resetTool() {
+      selectedFile = null;
+      document.getElementById('file-input').value = '';
+      document.getElementById('pdf-password').value = '';
+      document.getElementById('pdf-password-confirm').value = '';
+      document.getElementById('result-section').classList.add('hidden');
+      document.getElementById('upload-zone').classList.remove('hidden');
+    }
+  </script>
+</body>
+</html>

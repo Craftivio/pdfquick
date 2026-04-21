@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Merge PDF Online Free — Combine PDF Files | PDFQuick</title>
+  <meta name="description" content="Merge multiple PDF files into one online for free. Fast, secure, no signup needed. Works instantly in your browser."/>
+  <meta name="keywords" content="merge PDF, combine PDF files, join PDF online, merge PDF free, PDF merger"/>
+  <meta name="author" content="PDFQuick"/>
+  <meta name="robots" content="index, follow"/>
+  <link rel="canonical" href="https://pdfquick-dun.vercel.app/merge.html"/>
+  <meta property="og:type" content="website"/>
+  <meta property="og:url" content="https://pdfquick-dun.vercel.app/merge.html"/>
+  <meta property="og:title" content="Merge PDF Online Free — PDFQuick"/>
+  <meta property="og:description" content="Combine multiple PDFs into one file instantly. Free, private, no signup needed."/>
+  <meta property="og:image" content="https://pdfquick-dun.vercel.app/og-image.png"/>
+  <meta property="og:site_name" content="PDFQuick"/>
+  <meta name="twitter:card" content="summary_large_image"/>
+  <meta name="twitter:url" content="https://pdfquick-dun.vercel.app/merge.html"/>
+  <meta name="twitter:title" content="Merge PDF Online Free — PDFQuick"/>
+  <meta name="twitter:description" content="Combine multiple PDFs into one file instantly. Free, private, no signup needed."/>
+  <meta name="twitter:image" content="https://pdfquick-dun.vercel.app/og-image.png"/>
+  <meta name="theme-color" content="#3B6DFF"/>
+  <link rel="icon" type="image/svg+xml" href="favicon.svg"/>
+  <link rel="apple-touch-icon" href="favicon.svg"/>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"Merge PDF — PDFQuick","url":"https://pdfquick-dun.vercel.app/merge.html","description":"Merge multiple PDF files into one online for free.","applicationCategory":"UtilitiesApplication","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}</script>
+  <link rel="stylesheet" href="style.css"/>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+</head>
+<body>
+  <nav class="navbar">
+    <div class="nav-inner">
+      <a href="index.html" class="logo"><span class="logo-icon">⚡</span>PDFQuick</a>
+      <div class="nav-links" id="nav-auth-area"></div>
+    </div>
+  </nav>
+  <main class="tool-main">
+    <div class="tool-inner">
+      <div class="tool-header">
+        <div class="tool-header-icon">🔗</div>
+        <h1>Merge PDF</h1>
+        <p>Add your PDFs below, arrange them, then click Merge.</p>
+      </div>
+      <div class="upload-zone" id="upload-zone">
+        <input type="file" id="file-input" multiple accept=".pdf" hidden/>
+        <div class="upload-zone-inner" onclick="document.getElementById('file-input').click()">
+          <div class="upload-icon">📂</div>
+          <p class="upload-text">Click to select PDF files</p>
+          <p class="upload-hint">or drag & drop here</p>
+          <button class="btn btn-primary" type="button">Select PDF Files</button>
+        </div>
+      </div>
+      <div id="file-list-section" class="file-list-section hidden">
+        <div class="file-list-header">
+          <h3>Selected Files <span id="file-count" class="file-count-badge">0</span></h3>
+          <button class="btn btn-ghost btn-sm" onclick="clearFiles()">Clear all</button>
+        </div>
+        <ul id="file-list" class="file-list"></ul>
+        <div class="merge-actions">
+          <button class="btn btn-primary btn-lg" onclick="mergePDFs()" id="merge-btn">🔗 Merge PDFs</button>
+          <p class="merge-hint">Files will be merged in the order shown above</p>
+        </div>
+      </div>
+      <div id="result-section" class="result-section hidden">
+        <div class="result-card">
+          <div class="result-icon">✅</div>
+          <h3>Merge Complete!</h3>
+          <p id="result-info">Your merged PDF is ready.</p>
+          <div class="result-actions">
+            <a id="download-link" class="btn btn-primary btn-lg" download="merged.pdf">⬇️ Download Merged PDF</a>
+            <button class="btn btn-ghost" onclick="resetTool()">Merge more files</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+  <footer class="footer-main">
+    <div class="footer-inner">
+      <div class="footer-brand"><div class="logo" style="margin-bottom:10px;color:#fff;"><span class="logo-icon">⚡</span>PDFQuick</div><p>Free PDF tools that work right in your browser.</p></div>
+      <div class="footer-links">
+        <div class="footer-col"><h4>Tools</h4><a href="merge.html">Merge PDF</a><a href="compress.html">Compress PDF</a><a href="split.html">Split PDF</a><a href="protect.html">Protect PDF</a></div>
+        <div class="footer-col"><h4>Account</h4><a href="login.html">Login</a><a href="login.html#signup">Sign Up Free</a><a href="dashboard.html">Dashboard</a></div>
+        <div class="footer-col"><h4>Info</h4><a href="index.html#faq">FAQ</a><a href="index.html#how">How it works</a></div>
+      </div>
+    </div>
+    <div class="footer-bottom"><p>© 2025 PDFQuick · All files processed locally · Your privacy is protected</p></div>
+  </footer>
+  <script src="https://unpkg.com/pdf-lib@1.17.1/dist/pdf-lib.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="supabase.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
