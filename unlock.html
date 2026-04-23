@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Unlock PDF Online Free — Remove PDF Password | PDFQuick</title>
+  <meta name="description" content="Remove password protection from PDF files online for free. Unlock PDFs instantly in your browser. No signup needed. 100% private and secure."/>
+  <meta name="keywords" content="unlock PDF, remove PDF password, PDF password remover, decrypt PDF, unlock protected PDF free"/>
+  <meta name="author" content="PDFQuick"/>
+  <meta name="robots" content="index, follow"/>
+  <link rel="canonical" href="https://usepdfquick.com/unlock.html"/>
+  <meta property="og:type" content="website"/>
+  <meta property="og:url" content="https://usepdfquick.com/unlock.html"/>
+  <meta property="og:title" content="Unlock PDF Online Free — PDFQuick"/>
+  <meta property="og:description" content="Remove password protection from PDF files online for free. Fast, private, no signup needed."/>
+  <meta property="og:image" content="https://usepdfquick.com/og-image.png"/>
+  <meta property="og:site_name" content="PDFQuick"/>
+  <meta name="twitter:card" content="summary_large_image"/>
+  <meta name="theme-color" content="#3B6DFF"/>
+  <link rel="icon" type="image/svg+xml" href="favicon.svg"/>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"Unlock PDF — PDFQuick","url":"https://usepdfquick.com/unlock.html","description":"Remove password protection from PDF files online for free.","applicationCategory":"UtilitiesApplication","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}</script>
+  <link rel="stylesheet" href="style.css"/>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9212086908110813" crossorigin="anonymous"></script>
+</head>
+<body>
+  <nav class="navbar">
+    <div class="nav-inner">
+      <a href="index.html" class="logo"><span class="logo-icon">⚡</span>PDFQuick</a>
+      <div class="nav-links" id="nav-auth-area"></div>
+    </div>
+  </nav>
+
+  <main class="tool-main">
+    <div class="tool-inner">
+      <div class="tool-header">
+        <div class="tool-header-icon">🔓</div>
+        <h1>Unlock PDF</h1>
+        <p>Remove password protection from your PDF file. You must know the current password.</p>
+      </div>
+
+      <div class="upload-zone" id="upload-zone">
+        <input type="file" id="file-input" accept=".pdf" hidden/>
+        <div class="upload-zone-inner" onclick="document.getElementById('file-input').click()">
+          <div class="upload-icon">🔒</div>
+          <p class="upload-text">Click to select a protected PDF</p>
+          <p class="upload-hint">or drag & drop here</p>
+          <button class="btn btn-primary" type="button">Select PDF File</button>
+        </div>
+      </div>
+
+      <div id="file-panel" class="file-list-section hidden">
+        <div class="file-list-header">
+          <h3>Selected File</h3>
+          <button class="btn btn-ghost btn-sm" onclick="clearFile()">Clear</button>
+        </div>
+        <ul class="file-list">
+          <li>
+            <span class="file-list-icon">🔒</span>
+            <span class="file-list-name" id="file-name-display">file.pdf</span>
+            <span class="file-list-size" id="file-size-display">0 KB</span>
+          </li>
+        </ul>
+
+        <div class="compress-options">
+          <h3>Enter PDF Password</h3>
+          <div class="form-group" style="margin-top:4px;">
+            <label>Current password</label>
+            <input type="password" id="pdf-password" placeholder="Enter the current PDF password" style="padding:11px 14px;border:1.5px solid var(--border);border-radius:8px;font-size:14px;font-family:inherit;outline:none;width:100%;transition:border-color 0.15s;" onfocus="this.style.borderColor='var(--brand)'" onblur="this.style.borderColor='var(--border)'"/>
+          </div>
+          <div class="protect-warning" style="margin-top:14px;">
+            ⚠️ <strong>Important:</strong> You must know the current password to unlock the PDF. PDFQuick cannot bypass or crack passwords.
+          </div>
+        </div>
+
+        <div class="merge-actions">
+          <button class="btn btn-primary btn-lg" onclick="unlockPDF()" id="unlock-btn">
+            🔓 Unlock PDF
+          </button>
+          <p class="merge-hint">Processing happens in your browser — your file is never uploaded</p>
+        </div>
+      </div>
+
+      <div id="result-section" class="result-section hidden">
+        <div class="result-card">
+          <div class="result-icon">🔓</div>
+          <h3>PDF Unlocked!</h3>
+          <p id="result-info">Your unlocked PDF is ready to download.</p>
+          <div class="result-actions">
+            <a id="download-link" class="btn btn-primary btn-lg" download="unlocked.pdf">⬇️ Download Unlocked PDF</a>
+            <button class="btn btn-ghost" onclick="resetTool()">Unlock another</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer class="footer-main">
+    <div class="footer-inner">
+      <div class="footer-brand"><div class="logo" style="margin-bottom:10px;color:#fff;"><span class="logo-icon">⚡</span>PDFQuick</div><p>Free PDF tools that work right in your browser.</p></div>
+      <div class="footer-links">
+        <div class="footer-col"><h4>Tools</h4><a href="merge.html">Merge PDF</a><a href="compress.html">Compress PDF</a><a href="split.html">Split PDF</a><a href="protect.html">Protect PDF</a><a href="unlock.html">Unlock PDF</a><a href="pdf-to-image.html">PDF to Image</a><a href="image-to-pdf.html">Image to PDF</a><a href="watermark.html">Watermark PDF</a><a href="rotate.html">Rotate PDF</a><a href="word-to-pdf.html">Word to PDF</a></div>
+        <div class="footer-col"><h4>Account</h4><a href="login.html">Login</a><a href="login.html#signup">Sign Up Free</a><a href="dashboard.html">Dashboard</a></div>
+        <div class="footer-col"><h4>Legal</h4><a href="privacy.html">Privacy Policy</a><a href="terms.html">Terms of Service</a></div>
+      </div>
+    </div>
+    <div class="footer-bottom"><p>© 2025 PDFQuick · All files processed locally · Your privacy is protected</p></div>
+  </footer>
+
+  <script src="https://unpkg.com/pdf-lib@1.17.1/dist/pdf-lib.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="supabase.js"></script>
+  <script src="script.js"></script>
+  <script>
+    let selectedFile = null;
+
+    function formatBytes(b) {
+      if (b < 1024) return b + ' B';
+      if (b < 1024*1024) return (b/1024).toFixed(1) + ' KB';
+      return (b/(1024*1024)).toFixed(1) + ' MB';
+    }
+
+    document.getElementById('file-input').addEventListener('change', function() {
+      if (this.files[0]) {
+        selectedFile = this.files[0];
+        document.getElementById('file-name-display').textContent = selectedFile.name;
+        document.getElementById('file-size-display').textContent = formatBytes(selectedFile.size);
+        document.getElementById('file-panel').classList.remove('hidden');
+      }
+    });
+
+    const zone = document.getElementById('upload-zone');
+    zone.addEventListener('dragover', e => { e.preventDefault(); zone.classList.add('drag-over'); });
+    zone.addEventListener('dragleave', () => zone.classList.remove('drag-over'));
+    zone.addEventListener('drop', e => {
+      e.preventDefault(); zone.classList.remove('drag-over');
+      const f = e.dataTransfer.files[0];
+      if (f && f.type === 'application/pdf') {
+        selectedFile = f;
+        document.getElementById('file-name-display').textContent = f.name;
+        document.getElementById('file-size-display').textContent = formatBytes(f.size);
+        document.getElementById('file-panel').classList.remove('hidden');
+      }
+    });
+
+    function clearFile() {
+      selectedFile = null;
+      document.getElementById('file-input').value = '';
+      document.getElementById('file-panel').classList.add('hidden');
+    }
+
+    async function unlockPDF() {
+      if (!selectedFile) { alert('Please select a PDF file.'); return; }
+      const password = document.getElementById('pdf-password').value;
+      if (!password) { alert('Please enter the PDF password.'); return; }
+
+      const btn = document.getElementById('unlock-btn');
+      btn.textContent = '⏳ Unlocking...'; btn.disabled = true;
+
+      try {
+        const bytes = await selectedFile.arrayBuffer();
+        // Try loading with password
+        let pdfDoc;
+        try {
+          pdfDoc = await PDFLib.PDFDocument.load(bytes, { password });
+        } catch(e) {
+          alert('Incorrect password or this PDF cannot be unlocked in the browser. ' + e.message);
+          btn.textContent = '🔓 Unlock PDF'; btn.disabled = false;
+          return;
+        }
+
+        // Re-save without any password (no encryption options = unlocked)
+        const unlockedBytes = await pdfDoc.save();
+        const blob = new Blob([unlockedBytes], { type: 'application/pdf' });
+        const url = URL.createObjectURL(blob);
+
+        document.getElementById('download-link').href = url;
+        document.getElementById('result-info').textContent =
+          `"${selectedFile.name}" has been unlocked successfully. ${formatBytes(unlockedBytes.byteLength)}`;
+
+        document.getElementById('file-panel').classList.add('hidden');
+        document.getElementById('upload-zone').classList.add('hidden');
+        document.getElementById('result-section').classList.remove('hidden');
+
+        saveFileRecord('unlocked.pdf', unlockedBytes.byteLength);
+      } catch (err) {
+        alert('Error unlocking PDF: ' + err.message);
+      }
+
+      btn.textContent = '🔓 Unlock PDF'; btn.disabled = false;
+    }
+
+    function resetTool() {
+      selectedFile = null;
+      document.getElementById('file-input').value = '';
+      document.getElementById('pdf-password').value = '';
+      document.getElementById('result-section').classList.add('hidden');
+      document.getElementById('upload-zone').classList.remove('hidden');
+    }
+  </script>
+</body>
+</html>

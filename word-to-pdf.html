@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Word to PDF Online Free — Convert DOCX to PDF | PDFQuick</title>
+  <meta name="description" content="Convert Word documents (DOCX) to PDF online for free. Fast, private, no signup needed. Works instantly in your browser without Microsoft Word."/>
+  <meta name="keywords" content="word to PDF, DOCX to PDF, convert Word to PDF free, DOC to PDF online, Microsoft Word to PDF"/>
+  <meta name="author" content="PDFQuick"/>
+  <meta name="robots" content="index, follow"/>
+  <link rel="canonical" href="https://usepdfquick.com/word-to-pdf.html"/>
+  <meta property="og:type" content="website"/>
+  <meta property="og:url" content="https://usepdfquick.com/word-to-pdf.html"/>
+  <meta property="og:title" content="Word to PDF Online Free — PDFQuick"/>
+  <meta property="og:description" content="Convert DOCX to PDF online for free. Fast, private, no signup needed."/>
+  <meta property="og:image" content="https://usepdfquick.com/og-image.png"/>
+  <meta property="og:site_name" content="PDFQuick"/>
+  <meta name="twitter:card" content="summary_large_image"/>
+  <meta name="theme-color" content="#3B6DFF"/>
+  <link rel="icon" type="image/svg+xml" href="favicon.svg"/>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"Word to PDF — PDFQuick","url":"https://usepdfquick.com/word-to-pdf.html","description":"Convert Word documents to PDF online for free.","applicationCategory":"UtilitiesApplication","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}</script>
+  <link rel="stylesheet" href="style.css"/>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9212086908110813" crossorigin="anonymous"></script>
+</head>
+<body>
+  <nav class="navbar">
+    <div class="nav-inner">
+      <a href="index.html" class="logo"><span class="logo-icon">⚡</span>PDFQuick</a>
+      <div class="nav-links" id="nav-auth-area"></div>
+    </div>
+  </nav>
+
+  <main class="tool-main">
+    <div class="tool-inner">
+      <div class="tool-header">
+        <div class="tool-header-icon">📝</div>
+        <h1>Word to PDF</h1>
+        <p>Convert your Word document (.docx) to a PDF file instantly.</p>
+      </div>
+
+      <div class="upload-zone" id="upload-zone">
+        <input type="file" id="file-input" accept=".docx,.doc" hidden/>
+        <div class="upload-zone-inner" onclick="document.getElementById('file-input').click()">
+          <div class="upload-icon">📄</div>
+          <p class="upload-text">Click to select a Word document</p>
+          <p class="upload-hint">.docx or .doc — drag & drop here</p>
+          <button class="btn btn-primary" type="button">Select Word File</button>
+        </div>
+      </div>
+
+      <!-- Progress -->
+      <div id="progress-section" class="file-list-section hidden">
+        <div style="text-align:center;padding:32px;">
+          <div style="font-size:32px;margin-bottom:12px;">⏳</div>
+          <h3 id="progress-text">Converting your document…</h3>
+          <p style="margin-top:12px;font-size:13px;color:var(--text-muted);">Rendering Word document to PDF…</p>
+          <div style="background:var(--bg-alt);border-radius:100px;height:8px;margin-top:16px;overflow:hidden;">
+            <div id="progress-bar" style="background:var(--brand);height:100%;width:0%;transition:width 0.5s;border-radius:100px;animation:indeterminate 1.5s infinite;"></div>
+          </div>
+        </div>
+      </div>
+
+      <div id="result-section" class="result-section hidden">
+        <div class="result-card">
+          <div class="result-icon">✅</div>
+          <h3>Conversion Complete!</h3>
+          <p id="result-info">Your PDF is ready.</p>
+          <div class="result-actions">
+            <a id="download-link" class="btn btn-primary btn-lg" download="document.pdf">⬇️ Download PDF</a>
+            <button class="btn btn-ghost" onclick="resetTool()">Convert another</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Info note -->
+      <div style="background:var(--brand-light);border:1.5px solid var(--brand);border-radius:12px;padding:16px 20px;margin-top:24px;font-size:13px;color:var(--brand-dark);line-height:1.6;">
+        <strong>ℹ️ How it works:</strong> Your Word document is rendered locally in your browser using <strong>mammoth.js</strong> (extracts text & basic formatting) then saved as a PDF. Complex layouts, custom fonts, and embedded images may vary. For pixel-perfect conversion, use Microsoft Word's built-in PDF export.
+      </div>
+    </div>
+  </main>
+
+  <footer class="footer-main">
+    <div class="footer-inner">
+      <div class="footer-brand"><div class="logo" style="margin-bottom:10px;color:#fff;"><span class="logo-icon">⚡</span>PDFQuick</div><p>Free PDF tools that work right in your browser.</p></div>
+      <div class="footer-links">
+        <div class="footer-col"><h4>Tools</h4><a href="merge.html">Merge PDF</a><a href="compress.html">Compress PDF</a><a href="split.html">Split PDF</a><a href="protect.html">Protect PDF</a><a href="unlock.html">Unlock PDF</a><a href="pdf-to-image.html">PDF to Image</a><a href="image-to-pdf.html">Image to PDF</a><a href="watermark.html">Watermark PDF</a><a href="rotate.html">Rotate PDF</a><a href="word-to-pdf.html">Word to PDF</a></div>
+        <div class="footer-col"><h4>Account</h4><a href="login.html">Login</a><a href="login.html#signup">Sign Up Free</a><a href="dashboard.html">Dashboard</a></div>
+        <div class="footer-col"><h4>Legal</h4><a href="privacy.html">Privacy Policy</a><a href="terms.html">Terms of Service</a></div>
+      </div>
+    </div>
+    <div class="footer-bottom"><p>© 2025 PDFQuick · All files processed locally · Your privacy is protected</p></div>
+  </footer>
+
+  <script src="https://unpkg.com/pdf-lib@1.17.1/dist/pdf-lib.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mammoth@1.6.0/mammoth.browser.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="supabase.js"></script>
+  <script src="script.js"></script>
+  <script>
+    let selectedFile = null;
+
+    function formatBytes(b) {
+      if (b < 1024) return b + ' B';
+      if (b < 1024*1024) return (b/1024).toFixed(1) + ' KB';
+      return (b/(1024*1024)).toFixed(1) + ' MB';
+    }
+
+    document.getElementById('file-input').addEventListener('change', async function() {
+      if (this.files[0]) {
+        selectedFile = this.files[0];
+        await convertWordToPDF();
+      }
+    });
+
+    const zone = document.getElementById('upload-zone');
+    zone.addEventListener('dragover', e => { e.preventDefault(); zone.classList.add('drag-over'); });
+    zone.addEventListener('dragleave', () => zone.classList.remove('drag-over'));
+    zone.addEventListener('drop', async e => {
+      e.preventDefault(); zone.classList.remove('drag-over');
+      const f = e.dataTransfer.files[0];
+      if (f && (f.name.endsWith('.docx') || f.name.endsWith('.doc'))) {
+        selectedFile = f;
+        await convertWordToPDF();
+      }
+    });
+
+    async function convertWordToPDF() {
+      if (!selectedFile) return;
+
+      document.getElementById('upload-zone').classList.add('hidden');
+      document.getElementById('progress-section').classList.remove('hidden');
+
+      // Animate progress bar
+      const bar = document.getElementById('progress-bar');
+      let progress = 0;
+      const interval = setInterval(() => {
+        progress = Math.min(progress + 5, 85);
+        bar.style.width = progress + '%';
+      }, 150);
+
+      try {
+        const arrayBuffer = await selectedFile.arrayBuffer();
+
+        // Extract HTML from DOCX using mammoth
+        const result = await mammoth.convertToHtml({ arrayBuffer });
+        const html = result.value;
+
+        // Create a temporary container to render HTML
+        const container = document.createElement('div');
+        container.innerHTML = html;
+        container.style.cssText = 'font-family:Arial,sans-serif;font-size:12pt;line-height:1.6;color:#000;width:595px;padding:40px;box-sizing:border-box;position:absolute;left:-9999px;top:0;';
+        document.body.appendChild(container);
+
+        // A4 dimensions in points: 595 x 842
+        const pdfDoc = await PDFLib.PDFDocument.create();
+        const { StandardFonts } = PDFLib;
+        const font = await pdfDoc.embedFont(StandardFonts.Helvetica);
+        const boldFont = await pdfDoc.embedFont(StandardFonts.HelveticaBold);
+
+        const pageWidth = 595;
+        const pageHeight = 842;
+        const margin = 50;
+        const maxWidth = pageWidth - margin * 2;
+        const lineHeight = 16;
+        const fontSize = 11;
+
+        // Parse text content from HTML
+        function getTextNodes(el, nodes = []) {
+          for (const child of el.childNodes) {
+            if (child.nodeType === Node.TEXT_NODE && child.textContent.trim()) {
+              const parentTag = child.parentElement?.tagName?.toLowerCase();
+              nodes.push({ text: child.textContent, tag: parentTag || 'p' });
+            } else if (child.nodeType === Node.ELEMENT_NODE) {
+              const tag = child.tagName.toLowerCase();
+              if (tag === 'br') nodes.push({ text: '', tag: 'br' });
+              else getTextNodes(child, nodes);
+            }
+          }
+          return nodes;
+        }
+
+        const textNodes = getTextNodes(container);
+        document.body.removeChild(container);
+
+        let page = pdfDoc.addPage([pageWidth, pageHeight]);
+        let y = pageHeight - margin;
+
+        for (const node of textNodes) {
+          if (!node.text && node.tag !== 'br') continue;
+
+          const isHeading = ['h1','h2','h3','h4'].includes(node.tag);
+          const usedFont = isHeading ? boldFont : font;
+          const usedSize = isHeading ? 14 : fontSize;
+          const lineH = isHeading ? 22 : lineHeight;
+
+          // Add extra space before headings
+          if (isHeading && y < pageHeight - margin - 40) y -= 8;
+
+          // Word wrap
+          const words = (node.text || '').split(' ');
+          let line = '';
+          for (const word of words) {
+            const test = line ? line + ' ' + word : word;
+            const w = usedFont.widthOfTextAtSize(test, usedSize);
+            if (w > maxWidth && line) {
+              if (y < margin + lineH) {
+                page = pdfDoc.addPage([pageWidth, pageHeight]);
+                y = pageHeight - margin;
+              }
+              page.drawText(line, { x: margin, y, size: usedSize, font: usedFont, color: PDFLib.rgb(0,0,0) });
+              y -= lineH;
+              line = word;
+            } else {
+              line = test;
+            }
+          }
+          if (line) {
+            if (y < margin + lineH) {
+              page = pdfDoc.addPage([pageWidth, pageHeight]);
+              y = pageHeight - margin;
+            }
+            page.drawText(line, { x: margin, y, size: usedSize, font: usedFont, color: PDFLib.rgb(0,0,0) });
+            y -= lineH;
+          }
+          if (isHeading) y -= 4;
+        }
+
+        const pdfBytes = await pdfDoc.save();
+        const blob = new Blob([pdfBytes], { type: 'application/pdf' });
+        const url = URL.createObjectURL(blob);
+
+        clearInterval(interval);
+        bar.style.width = '100%';
+
+        const outName = selectedFile.name.replace(/\.docx?$/i, '') + '.pdf';
+        document.getElementById('download-link').href = url;
+        document.getElementById('download-link').download = outName;
+        document.getElementById('result-info').textContent =
+          `"${selectedFile.name}" converted successfully · ${formatBytes(pdfBytes.byteLength)}`;
+
+        document.getElementById('progress-section').classList.add('hidden');
+        document.getElementById('result-section').classList.remove('hidden');
+
+        saveFileRecord(outName, pdfBytes.byteLength);
+
+      } catch (err) {
+        clearInterval(interval);
+        alert('Error converting document: ' + err.message + '\n\nMake sure you selected a valid .docx file.');
+        document.getElementById('progress-section').classList.add('hidden');
+        document.getElementById('upload-zone').classList.remove('hidden');
+      }
+    }
+
+    function resetTool() {
+      selectedFile = null;
+      document.getElementById('file-input').value = '';
+      document.getElementById('result-section').classList.add('hidden');
+      document.getElementById('upload-zone').classList.remove('hidden');
+    }
+  </script>
+</body>
+</html>
