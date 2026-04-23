@@ -1,6 +1,6 @@
 /* ============================================================
-   script.js — PDFQuick v2.0
-   Handles: auth (email + GitHub OAuth), nav, merge, dashboard
+   script.js — PDFQuick v2.1
+   Handles: auth, nav, merge, dashboard, cookies, analytics
    ============================================================ */
 
 /* ━━━━ 1. UTILITIES ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
@@ -19,15 +19,53 @@ function showAuthMessage(text, type = 'error') {
   el.className = 'auth-message ' + type;
 }
 
-/* ━━━━ 2. NAV AUTH (runs on every tool page) ━━━━━━━━━━━━━━━ */
+/* Simple analytics event helper — works if GA4 is loaded */
+function trackEvent(name, params = {}) {
+  try {
+    if (typeof gtag === 'function') {
+      gtag('event', name, params);
+    }
+  } catch(e) {}
+}
+
+/* Error logger — logs to console + optionally sends to backend in future */
+function logError(context, err) {
+  console.error(`[${context}]`, err);
+  trackEvent('tool_error', { context, message: String(err?.message || err).slice(0, 150) });
+}
+
+/* ━━━━ 2. COOKIE CONSENT ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+function cookieChoice(acceptAll) {
+  localStorage.setItem('pdfq_cookies', acceptAll ? 'all' : 'essential');
+  localStorage.setItem('pdfq_cookies_date', new Date().toISOString());
+  const banner = document.getElementById('cookie-banner');
+  if (banner) banner.classList.add('hidden');
+  trackEvent('cookie_consent', { choice: acceptAll ? 'all' : 'essential' });
+}
+function initCookieBanner() {
+  const banner = document.getElementById('cookie-banner');
+  if (!banner) return;
+  const choice = localStorage.getItem('pdfq_cookies');
+  if (!choice) {
+    // Show after small delay to avoid jank
+    setTimeout(() => banner.classList.remove('hidden'), 800);
+  }
+}
+
+/* ━━━━ 3. NAV AUTH ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
 async function initNavAuth() {
   const navArea = document.getElementById('nav-auth-area');
   if (!navArea) return;
+
+  // Show placeholder briefly to avoid flash
+  navArea.innerHTML = `<span style="width:160px;height:20px;"></span>`;
+
   try {
     const { data: { session } } = await db.auth.getSession();
     if (session) {
+      const displayName = session.user.email || session.user.user_metadata?.user_name || 'User';
       navArea.innerHTML = `
-        <span class="user-email-display">${session.user.email || 'GitHub User'}</span>
+        <span class="user-email-display">${escapeHtml(displayName)}</span>
         <a href="dashboard.html" class="btn btn-ghost">Dashboard</a>
         <button class="btn btn-ghost" onclick="handleLogout()">Logout</button>`;
     } else {
@@ -41,8 +79,11 @@ async function initNavAuth() {
       <a href="login.html#signup" class="btn btn-primary">Sign up free</a>`;
   }
 }
+function escapeHtml(str) {
+  return String(str).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'})[c]);
+}
 
-/* ━━━━ 3. AUTH — Email + GitHub ━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+/* ━━━━ 4. AUTH — Email + GitHub ━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
 async function handleSignup() {
   const email    = document.getElementById('signup-email').value.trim();
   const password = document.getElementById('signup-password').value;
@@ -52,8 +93,13 @@ async function handleSignup() {
   const orig = btn.textContent; btn.textContent = 'Creating account…'; btn.disabled = true;
   const { error } = await db.auth.signUp({ email, password });
   btn.textContent = orig; btn.disabled = false;
-  if (error) showAuthMessage(error.message, 'error');
-  else showAuthMessage('✅ Account created! Check your email to confirm.', 'success');
+  if (error) {
+    showAuthMessage(error.message, 'error');
+    trackEvent('signup_failed', { method: 'email' });
+  } else {
+    showAuthMessage('✅ Account created! Check your email to confirm.', 'success');
+    trackEvent('sign_up', { method: 'email' });
+  }
 }
 
 async function handleLogin() {
@@ -64,11 +110,17 @@ async function handleLogin() {
   const orig = btn.textContent; btn.textContent = 'Logging in…'; btn.disabled = true;
   const { error } = await db.auth.signInWithPassword({ email, password });
   btn.textContent = orig; btn.disabled = false;
-  if (error) showAuthMessage(error.message, 'error');
-  else window.location.href = 'dashboard.html';
+  if (error) {
+    showAuthMessage(error.message, 'error');
+    trackEvent('login_failed', { method: 'email' });
+  } else {
+    trackEvent('login', { method: 'email' });
+    window.location.href = 'dashboard.html';
+  }
 }
 
 async function handleGitHubLogin() {
+  trackEvent('login_attempt', { method: 'github' });
   const { error } = await db.auth.signInWithOAuth({
     provider: 'github',
     options: { redirectTo: 'https://www.usepdfquick.com/dashboard.html' }
@@ -78,6 +130,7 @@ async function handleGitHubLogin() {
 
 async function handleLogout() {
   await db.auth.signOut();
+  trackEvent('logout');
   window.location.href = 'index.html';
 }
 
@@ -89,16 +142,26 @@ function showTab(tab) {
   document.getElementById('auth-message').className = 'auth-message hidden';
 }
 
-/* ━━━━ 4. DASHBOARD ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+/* ━━━━ 5. DASHBOARD — with retry logic ━━━━━━━━━━━━━━━━━━━━━ */
 async function initDashboard() {
-  const { data: { session } } = await db.auth.getSession();
+  // Retry up to 2 times in case of transient session errors
+  let session = null;
+  for (let i = 0; i < 3; i++) {
+    try {
+      const { data } = await db.auth.getSession();
+      if (data?.session) { session = data.session; break; }
+    } catch(e) { logError('dashboard_session', e); }
+    if (i < 2) await new Promise(r => setTimeout(r, 400));
+  }
   if (!session) { window.location.href = 'login.html'; return; }
+
   const emailEl = document.getElementById('user-email');
-  if (emailEl) emailEl.textContent = session.user.email || 'GitHub User';
+  if (emailEl) emailEl.textContent = session.user.email || session.user.user_metadata?.user_name || 'Signed in';
+
   loadUserFiles(session.user.id);
 }
 
-/* ━━━━ 5. MERGE TOOL ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+/* ━━━━ 6. MERGE TOOL ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
 let selectedFiles = [];
 function handleFileSelect(newFiles) {
   const pdfFiles = Array.from(newFiles).filter(f => f.type === 'application/pdf');
@@ -116,7 +179,7 @@ function renderFileList() {
   listEl.innerHTML = selectedFiles.map((file, index) => `
     <li>
       <span class="file-list-icon">📄</span>
-      <span class="file-list-name">${file.name}</span>
+      <span class="file-list-name">${escapeHtml(file.name)}</span>
       <span class="file-list-size">${formatBytes(file.size)}</span>
       <button class="file-list-remove" onclick="removeFile(${index})" title="Remove">✕</button>
     </li>`).join('');
@@ -135,6 +198,7 @@ async function mergePDFs() {
   if (selectedFiles.length < 2) { alert('Please select at least 2 PDF files to merge.'); return; }
   const btn = document.getElementById('merge-btn');
   btn.textContent = '⏳ Merging...'; btn.disabled = true;
+  trackEvent('tool_start', { tool: 'merge', count: selectedFiles.length });
   try {
     const mergedPdf = await PDFLib.PDFDocument.create();
     for (const file of selectedFiles) {
@@ -153,7 +217,11 @@ async function mergePDFs() {
     document.getElementById('result-section').classList.remove('hidden');
     document.getElementById('upload-zone').classList.add('hidden');
     saveFileRecord('merged.pdf', mergedBytes.length);
-  } catch (err) { alert('Error merging PDFs: ' + err.message); }
+    trackEvent('tool_success', { tool: 'merge', output_size: mergedBytes.length });
+  } catch (err) {
+    logError('merge', err);
+    alert('Error merging PDFs: ' + err.message + '\n\nIf one of the PDFs is password-protected, unlock it first.');
+  }
   btn.textContent = '🔗 Merge PDFs'; btn.disabled = false;
 }
 function resetTool() {
@@ -175,7 +243,7 @@ function setupDropZone() {
   });
 }
 
-/* ━━━━ 6. SUPABASE DB ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+/* ━━━━ 7. SUPABASE DB ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
 async function saveFileRecord(fileName, fileSize) {
   try {
     const { data: { session } } = await db.auth.getSession();
@@ -183,35 +251,37 @@ async function saveFileRecord(fileName, fileSize) {
     const { error } = await db.from('files').insert({
       user_id: session.user.id, file_name: fileName, file_size: fileSize,
     });
-    if (error) console.error('Error saving file record:', error.message);
-  } catch(e) { console.error('saveFileRecord error:', e); }
+    if (error) logError('saveFileRecord', error);
+  } catch(e) { logError('saveFileRecord_outer', e); }
 }
 async function loadUserFiles(userId) {
   const { data: files, error } = await db.from('files').select('*')
     .eq('user_id', userId).order('created_at', { ascending: false });
-  if (error) { console.error(error); return; }
+  if (error) { logError('loadUserFiles', error); return; }
   const listEl = document.getElementById('files-list');
   const statEl = document.getElementById('stat-total');
   if (!listEl) return;
   if (statEl) statEl.textContent = files.length;
   if (files.length === 0) {
-    listEl.innerHTML = `<div class="empty-state"><div class="empty-icon">📄</div><p>No files yet. <a href="merge.html">Merge your first PDF →</a></p></div>`;
+    listEl.innerHTML = `<div class="empty-state"><div class="empty-icon">📄</div><p>No files yet. <a href="index.html#tools">Pick a tool to get started →</a></p></div>`;
     return;
   }
   listEl.innerHTML = files.map(file => `
     <div class="file-row">
       <span class="file-row-icon">📄</span>
-      <span class="file-row-name">${file.file_name}</span>
+      <span class="file-row-name">${escapeHtml(file.file_name)}</span>
       <span class="file-row-size">${file.file_size ? formatBytes(file.file_size) : ''}</span>
       <span class="file-row-date">${new Date(file.created_at).toLocaleDateString('en-US',{year:'numeric',month:'short',day:'numeric'})}</span>
     </div>`).join('');
 }
 
-/* ━━━━ 7. AUTO-INIT ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+/* ━━━━ 8. AUTO-INIT ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
 document.addEventListener('DOMContentLoaded', () => {
   const page = currentPage();
-  // Nav auth on every tool page
   initNavAuth();
+  initCookieBanner();
   if (page === 'dashboard.html') initDashboard();
   if (page === 'merge.html') setupDropZone();
+  // Track page view (GA4 already does this, but name it nicely)
+  trackEvent('page_view', { page: page });
 });

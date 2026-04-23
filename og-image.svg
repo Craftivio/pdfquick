@@ -1,0 +1,66 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#3B6DFF;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#2952CC;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="card" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#FFFFFF;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#F0F4FF;stop-opacity:1" />
+    </linearGradient>
+    <filter id="shadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="8" stdDeviation="16" flood-opacity="0.2"/>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1200" height="630" fill="url(#bg)"/>
+
+  <!-- Decorative circles -->
+  <circle cx="100" cy="100" r="180" fill="#FFFFFF" opacity="0.05"/>
+  <circle cx="1100" cy="530" r="220" fill="#FFFFFF" opacity="0.05"/>
+  <circle cx="950" cy="120" r="80" fill="#FFFFFF" opacity="0.08"/>
+
+  <!-- Main card -->
+  <rect x="80" y="110" width="1040" height="410" rx="24" fill="url(#card)" filter="url(#shadow)"/>
+
+  <!-- Logo + Brand -->
+  <g transform="translate(130, 170)">
+    <text font-family="DM Sans, Arial, sans-serif" font-size="44" font-weight="700" fill="#111827">
+      <tspan font-size="56">⚡</tspan><tspan dx="8">PDFQuick</tspan>
+    </text>
+  </g>
+
+  <!-- Tagline -->
+  <text x="130" y="290" font-family="DM Sans, Arial, sans-serif" font-size="68" font-weight="700" fill="#111827" letter-spacing="-2">
+    10 Free PDF Tools
+  </text>
+  <text x="130" y="365" font-family="DM Sans, Arial, sans-serif" font-size="68" font-weight="700" fill="#3B6DFF" letter-spacing="-2">
+    Right in your browser
+  </text>
+
+  <!-- Subtitle -->
+  <text x="130" y="420" font-family="DM Sans, Arial, sans-serif" font-size="26" fill="#6B7280">
+    Merge · Compress · Split · Protect · Convert · More
+  </text>
+
+  <!-- Feature pills -->
+  <g transform="translate(130, 455)">
+    <rect x="0" y="0" width="160" height="42" rx="21" fill="#EEF2FF" stroke="#3B6DFF" stroke-width="1.5"/>
+    <text x="80" y="28" font-family="DM Sans, Arial, sans-serif" font-size="16" font-weight="600" fill="#3B6DFF" text-anchor="middle">🔐 100% Private</text>
+
+    <rect x="175" y="0" width="140" height="42" rx="21" fill="#EEF2FF" stroke="#3B6DFF" stroke-width="1.5"/>
+    <text x="245" y="28" font-family="DM Sans, Arial, sans-serif" font-size="16" font-weight="600" fill="#3B6DFF" text-anchor="middle">⚡ Instant</text>
+
+    <rect x="330" y="0" width="160" height="42" rx="21" fill="#EEF2FF" stroke="#3B6DFF" stroke-width="1.5"/>
+    <text x="410" y="28" font-family="DM Sans, Arial, sans-serif" font-size="16" font-weight="600" fill="#3B6DFF" text-anchor="middle">💸 Free Forever</text>
+
+    <rect x="505" y="0" width="160" height="42" rx="21" fill="#EEF2FF" stroke="#3B6DFF" stroke-width="1.5"/>
+    <text x="585" y="28" font-family="DM Sans, Arial, sans-serif" font-size="16" font-weight="600" fill="#3B6DFF" text-anchor="middle">🚫 No Signup</text>
+  </g>
+
+  <!-- URL at bottom -->
+  <text x="600" y="590" font-family="DM Sans, Arial, sans-serif" font-size="20" font-weight="600" fill="#FFFFFF" text-anchor="middle" opacity="0.9">
+    usepdfquick.com
+  </text>
+</svg>

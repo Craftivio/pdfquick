@@ -4,30 +4,16 @@
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>My Dashboard — PDFQuick</title>
-  <meta name="description" content="View your PDF file history and access all PDFQuick tools from your personal dashboard."/>
-  <meta name="keywords" content="PDFQuick dashboard, my PDF files, PDF history"/>
-  <meta name="author" content="PDFQuick"/>
+  <meta name="description" content="View your PDF file history and access all 10 PDFQuick tools from your personal dashboard."/>
   <meta name="robots" content="noindex, nofollow"/>
   <link rel="canonical" href="https://usepdfquick.com/dashboard.html"/>
-  <meta property="og:type" content="website"/>
-  <meta property="og:url" content="https://usepdfquick.com/dashboard.html"/>
-  <meta property="og:title" content="My Dashboard — PDFQuick"/>
-  <meta property="og:description" content="View your PDF file history and access all PDFQuick tools."/>
-  <meta property="og:image" content="https://usepdfquick.com/og-image.png"/>
-  <meta property="og:site_name" content="PDFQuick"/>
-  <meta name="twitter:card" content="summary_large_image"/>
-  <meta name="twitter:url" content="https://usepdfquick.com/dashboard.html"/>
-  <meta name="twitter:title" content="My Dashboard — PDFQuick"/>
-  <meta name="twitter:description" content="View your PDF file history and access all PDFQuick tools."/>
-  <meta name="twitter:image" content="https://usepdfquick.com/og-image.png"/>
   <meta name="theme-color" content="#3B6DFF"/>
   <link rel="icon" type="image/svg+xml" href="favicon.svg"/>
-  <link rel="apple-touch-icon" href="favicon.svg"/>
-  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"Dashboard — PDFQuick","url":"https://usepdfquick.com/dashboard.html"}</script>
   <link rel="stylesheet" href="style.css"/>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet"/>
-  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9212086908110813"
-       crossorigin="anonymous"></script>
+  <!-- GA4 -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-G0KEV25F42"></script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-G0KEV25F42');</script>
 </head>
 <body>
   <nav class="navbar">
@@ -35,6 +21,7 @@
       <a href="index.html" class="logo"><span class="logo-icon">⚡</span>PDFQuick</a>
       <div class="nav-links">
         <span id="user-email" class="user-email-display"></span>
+        <a href="index.html#tools" class="btn btn-ghost">All Tools</a>
         <button class="btn btn-ghost" onclick="handleLogout()">Logout</button>
       </div>
     </div>
@@ -43,17 +30,28 @@
     <div class="dashboard-inner">
       <div class="dashboard-header">
         <div><h1>My Dashboard</h1><p class="dashboard-sub">Your recent PDF activity</p></div>
-        <a href="merge.html" class="btn btn-primary">+ Merge PDFs</a>
+        <a href="index.html#tools" class="btn btn-primary">+ Use a tool</a>
       </div>
       <div class="stats-row">
         <div class="stat-card"><div class="stat-number" id="stat-total">0</div><div class="stat-label">Files Processed</div></div>
-        <div class="stat-card"><div class="stat-number">4</div><div class="stat-label">Tools Available</div></div>
+        <div class="stat-card"><div class="stat-number">10</div><div class="stat-label">Tools Available</div></div>
         <div class="stat-card"><div class="stat-number">Free</div><div class="stat-label">Current Plan</div></div>
       </div>
       <div class="dashboard-section">
         <h2>Recent Files</h2>
         <div id="files-list" class="files-list">
-          <div class="empty-state"><div class="empty-icon">📄</div><p>No files yet. <a href="merge.html">Merge your first PDF →</a></p></div>
+          <div class="empty-state"><div class="empty-icon">📄</div><p>No files yet. <a href="index.html#tools">Pick a tool to get started →</a></p></div>
+        </div>
+      </div>
+
+      <!-- Quick Access tools -->
+      <div class="dashboard-section">
+        <h2>Quick Access</h2>
+        <div class="tools-grid" style="grid-template-columns:repeat(auto-fit,minmax(200px,1fr));">
+          <a href="merge.html" class="tool-card"><div class="tool-icon">🔗</div><div class="tool-info"><h2>Merge PDF</h2><p>Combine PDFs</p></div></a>
+          <a href="compress.html" class="tool-card"><div class="tool-icon">🗜️</div><div class="tool-info"><h2>Compress</h2><p>Reduce file size</p></div></a>
+          <a href="split.html" class="tool-card"><div class="tool-icon">✂️</div><div class="tool-info"><h2>Split</h2><p>Extract pages</p></div></a>
+          <a href="protect.html" class="tool-card"><div class="tool-icon">🔒</div><div class="tool-info"><h2>Protect</h2><p>Add password</p></div></a>
         </div>
       </div>
     </div>
@@ -62,9 +60,10 @@
     <div class="footer-inner">
       <div class="footer-brand"><div class="logo" style="margin-bottom:10px;color:#fff;"><span class="logo-icon">⚡</span>PDFQuick</div><p>Free PDF tools that work right in your browser.</p></div>
       <div class="footer-links">
-        <div class="footer-col"><h4>Tools</h4><a href="merge.html">Merge PDF</a><a href="compress.html">Compress PDF</a><a href="split.html">Split PDF</a><a href="protect.html">Protect PDF</a></div>
-        <div class="footer-col"><h4>Account</h4><a href="login.html">Login</a><a href="login.html#signup">Sign Up Free</a></div>
-        <div class="footer-col"><h4>Info</h4><a href="index.html#faq">FAQ</a><a href="index.html#how">How it works</a></div>
+        <div class="footer-col"><h4>Tools</h4><a href="merge.html">Merge PDF</a><a href="compress.html">Compress PDF</a><a href="split.html">Split PDF</a><a href="protect.html">Protect PDF</a><a href="unlock.html">Unlock PDF</a><a href="pdf-to-image.html">PDF to Image</a><a href="image-to-pdf.html">Image to PDF</a><a href="watermark.html">Watermark PDF</a><a href="rotate.html">Rotate PDF</a><a href="word-to-pdf.html">Word to PDF</a></div>
+        <div class="footer-col"><h4>Account</h4><a href="login.html">Login</a><a href="login.html#signup">Sign Up Free</a><a href="dashboard.html">Dashboard</a></div>
+        <div class="footer-col"><h4>Info</h4><a href="index.html#faq">FAQ</a><a href="index.html#how">How it works</a><a href="contact.html">Contact</a></div>
+        <div class="footer-col"><h4>Legal</h4><a href="privacy.html">Privacy Policy</a><a href="terms.html">Terms of Service</a></div>
       </div>
     </div>
     <div class="footer-bottom"><p>© 2025 PDFQuick · All files processed locally · Your privacy is protected</p></div>

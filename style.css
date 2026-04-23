@@ -1,5 +1,5 @@
 /* ============================================================
-   PDFQuick — style.css v2.0
+   PDFQuick — style.css v2.1
    ============================================================ */
 
 /* ── 1. Variables ──────────────────────────────────────────── */
@@ -56,15 +56,8 @@ ul { list-style: none; }
 .btn-sm    { padding: 6px 14px; font-size: 13px; }
 
 /* ── 4. Navbar ─────────────────────────────────────────────── */
-.navbar {
-  position: sticky; top: 0; z-index: 100;
-  background: rgba(255,255,255,0.95); backdrop-filter: blur(10px);
-  border-bottom: 1px solid var(--border);
-}
-.nav-inner {
-  max-width: 1100px; margin: 0 auto; padding: 0 24px;
-  height: 60px; display: flex; align-items: center; justify-content: space-between;
-}
+.navbar { position: sticky; top: 0; z-index: 100; background: rgba(255,255,255,0.95); backdrop-filter: blur(10px); border-bottom: 1px solid var(--border); }
+.nav-inner { max-width: 1100px; margin: 0 auto; padding: 0 24px; height: 60px; display: flex; align-items: center; justify-content: space-between; }
 .logo { font-size: 20px; font-weight: 700; color: var(--text); display: flex; align-items: center; gap: 6px; text-decoration: none; }
 .logo:hover { text-decoration: none; }
 .logo-icon { font-size: 22px; }
@@ -74,35 +67,22 @@ ul { list-style: none; }
 /* ── 5. Hero ───────────────────────────────────────────────── */
 .hero { background: linear-gradient(160deg, #F0F4FF 0%, #FFFFFF 60%); padding: 80px 24px 60px; }
 .hero-inner { max-width: 820px; margin: 0 auto; text-align: center; }
-.hero-badge {
-  display: inline-block; background: var(--brand-light); color: var(--brand);
-  font-size: 13px; font-weight: 600; padding: 5px 14px; border-radius: 100px; margin-bottom: 24px;
-}
+.hero-badge { display: inline-block; background: var(--brand-light); color: var(--brand); font-size: 13px; font-weight: 600; padding: 5px 14px; border-radius: 100px; margin-bottom: 24px; }
 .hero-title { font-size: clamp(32px, 6vw, 52px); font-weight: 700; line-height: 1.15; letter-spacing: -0.02em; margin-bottom: 16px; }
 .hero-subtitle { font-size: 17px; color: var(--text-muted); line-height: 1.7; margin-bottom: 32px; max-width: 540px; margin-left: auto; margin-right: auto; }
-
-/* Trust bar */
-.hero-trust {
-  display: flex; align-items: center; justify-content: center;
-  flex-wrap: wrap; gap: 8px 4px; margin-bottom: 0;
-  font-size: 13px; color: var(--text-muted);
-}
+.hero-trust { display: flex; align-items: center; justify-content: center; flex-wrap: wrap; gap: 8px 4px; font-size: 13px; color: var(--text-muted); }
 .trust-item { font-weight: 500; }
 .trust-divider { color: var(--border); }
 
 /* ── 6. Tool Cards ─────────────────────────────────────────── */
 .tools-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 16px; text-align: left; }
-.tool-card {
-  background: #fff; border: 1.5px solid var(--border); border-radius: var(--radius);
-  padding: 22px; display: flex; align-items: center; gap: 16px;
-  cursor: pointer; transition: all 0.2s ease; text-decoration: none; color: inherit;
-}
+.tool-card { background: #fff; border: 1.5px solid var(--border); border-radius: var(--radius); padding: 22px; display: flex; align-items: center; gap: 16px; cursor: pointer; transition: all 0.2s ease; text-decoration: none; color: inherit; }
 .tool-card:hover { border-color: var(--brand); box-shadow: var(--shadow-lg); transform: translateY(-2px); text-decoration: none; }
 .tool-card--primary { border-color: var(--brand); background: linear-gradient(135deg, #fff 60%, var(--brand-light)); }
 .tool-icon { font-size: 28px; flex-shrink: 0; }
 .tool-info h2 { font-size: 15px; font-weight: 700; margin-bottom: 3px; }
-.tool-info p  { font-size: 13px; color: var(--text-muted); line-height: 1.4; }
-.tool-arrow   { margin-left: auto; font-size: 18px; color: var(--brand); flex-shrink: 0; }
+.tool-info p { font-size: 13px; color: var(--text-muted); line-height: 1.4; }
+.tool-arrow { margin-left: auto; font-size: 18px; color: var(--brand); flex-shrink: 0; }
 
 /* ── 7. Stats Strip ────────────────────────────────────────── */
 .stats-strip { background: var(--brand); padding: 32px 24px; }
@@ -126,7 +106,7 @@ ul { list-style: none; }
 .step-num { font-size: 11px; font-weight: 700; letter-spacing: 0.1em; color: var(--brand); margin-bottom: 12px; }
 .step-icon { font-size: 32px; margin-bottom: 12px; }
 .step-card h3 { font-size: 17px; font-weight: 700; margin-bottom: 8px; }
-.step-card p  { font-size: 14px; color: var(--text-muted); line-height: 1.6; }
+.step-card p { font-size: 14px; color: var(--text-muted); line-height: 1.6; }
 
 /* ── 10. Features ──────────────────────────────────────────── */
 .features-section { padding: 80px 0; background: var(--bg-alt); }
@@ -135,7 +115,7 @@ ul { list-style: none; }
 .feature-card:hover { border-color: var(--brand); box-shadow: var(--shadow-lg); transform: translateY(-2px); }
 .feature-icon { font-size: 32px; margin-bottom: 14px; }
 .feature-card h3 { font-size: 16px; font-weight: 700; margin-bottom: 8px; }
-.feature-card p  { font-size: 14px; color: var(--text-muted); line-height: 1.6; }
+.feature-card p { font-size: 14px; color: var(--text-muted); line-height: 1.6; }
 
 /* ── 11. FAQ ───────────────────────────────────────────────── */
 .faq-section { padding: 80px 0; background: var(--bg); }
@@ -154,7 +134,7 @@ ul { list-style: none; }
 .cta-section { background: linear-gradient(135deg, var(--brand) 0%, #5B8AFF 100%); padding: 80px 24px; text-align: center; }
 .cta-inner { max-width: 600px; margin: 0 auto; }
 .cta-section h2 { font-size: clamp(24px, 4vw, 36px); font-weight: 700; color: #fff; margin-bottom: 12px; letter-spacing: -0.02em; }
-.cta-section p  { font-size: 16px; color: rgba(255,255,255,0.85); margin-bottom: 32px; }
+.cta-section p { font-size: 16px; color: rgba(255,255,255,0.85); margin-bottom: 32px; }
 .cta-btns { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
 
 /* ── 13. Footer ────────────────────────────────────────────── */
@@ -181,14 +161,13 @@ ul { list-style: none; }
 .auth-form { display: flex; flex-direction: column; gap: 14px; }
 .form-group { display: flex; flex-direction: column; gap: 6px; }
 .form-group label { font-size: 13px; font-weight: 600; color: var(--text); }
-.form-group input { padding: 11px 14px; border: 1.5px solid var(--border); border-radius: 8px; font-size: 14px; font-family: inherit; color: var(--text); outline: none; transition: border-color 0.15s; width: 100%; }
-.form-group input:focus { border-color: var(--brand); }
-.form-group input::placeholder { color: #C0C4CC; }
+.form-group input, .form-group textarea, .form-group select { padding: 11px 14px; border: 1.5px solid var(--border); border-radius: 8px; font-size: 14px; font-family: inherit; color: var(--text); outline: none; transition: border-color 0.15s; width: 100%; }
+.form-group input:focus, .form-group textarea:focus, .form-group select:focus { border-color: var(--brand); }
+.form-group input::placeholder, .form-group textarea::placeholder { color: #C0C4CC; }
 .auth-switch { text-align: center; font-size: 13px; color: var(--text-muted); }
 .auth-message { margin-top: 16px; padding: 12px 16px; border-radius: 8px; font-size: 13px; font-weight: 500; text-align: center; }
 .auth-message.success { background: #ECFDF5; color: var(--success); border: 1px solid #A7F3D0; }
-.auth-message.error   { background: #FEF2F2; color: var(--danger);  border: 1px solid #FECACA; }
-/* Auth divider */
+.auth-message.error { background: #FEF2F2; color: var(--danger); border: 1px solid #FECACA; }
 .auth-divider { display: flex; align-items: center; gap: 12px; margin: 16px 0 4px; color: var(--text-muted); font-size: 12px; }
 .auth-divider::before, .auth-divider::after { content: ''; flex: 1; height: 1px; background: var(--border); }
 
@@ -221,7 +200,7 @@ ul { list-style: none; }
 .tool-header { text-align: center; margin-bottom: 40px; }
 .tool-header-icon { font-size: 44px; margin-bottom: 12px; }
 .tool-header h1 { font-size: 30px; font-weight: 700; margin-bottom: 8px; }
-.tool-header p  { font-size: 15px; color: var(--text-muted); }
+.tool-header p { font-size: 15px; color: var(--text-muted); }
 .upload-zone { background: #fff; border: 2px dashed var(--border); border-radius: 16px; padding: 56px 32px; text-align: center; cursor: pointer; transition: all 0.2s; margin-bottom: 28px; }
 .upload-zone:hover, .upload-zone.drag-over { border-color: var(--brand); background: var(--brand-light); }
 .upload-icon { font-size: 48px; margin-bottom: 12px; }
@@ -244,10 +223,26 @@ ul { list-style: none; }
 .result-card { background: #fff; border: 1.5px solid #A7F3D0; border-radius: var(--radius); padding: 44px 32px; text-align: center; box-shadow: 0 4px 20px rgba(16,185,129,0.1); }
 .result-icon { font-size: 52px; margin-bottom: 12px; }
 .result-card h3 { font-size: 22px; font-weight: 700; margin-bottom: 8px; }
-.result-card p  { color: var(--text-muted); font-size: 14px; margin-bottom: 24px; }
+.result-card p { color: var(--text-muted); font-size: 14px; margin-bottom: 24px; }
 .result-actions { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
 
-/* ── 17. Compress Options ──────────────────────────────────── */
+/* ── 17. Related Tools (cross-linking) ─────────────────────── */
+.related-tools {
+  max-width: 680px; margin: 40px auto 0; padding: 28px;
+  background: #fff; border: 1.5px solid var(--border);
+  border-radius: var(--radius);
+}
+.related-tools h3 { font-size: 14px; font-weight: 700; margin-bottom: 16px; color: var(--text); }
+.related-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 10px; }
+.related-tools a {
+  display: flex; align-items: center; gap: 8px;
+  padding: 10px 12px; border: 1px solid var(--border); border-radius: 8px;
+  font-size: 13px; font-weight: 600; color: var(--text);
+  transition: all 0.15s;
+}
+.related-tools a:hover { border-color: var(--brand); background: var(--brand-light); color: var(--brand); text-decoration: none; }
+
+/* ── 18. Compress Options ──────────────────────────────────── */
 .compress-options { margin-top: 20px; padding-top: 20px; border-top: 1px solid var(--border); }
 .compress-options h3 { font-size: 15px; font-weight: 700; margin-bottom: 14px; }
 .compress-levels { display: flex; flex-direction: column; gap: 10px; }
@@ -259,10 +254,10 @@ ul { list-style: none; }
 .level-name { font-size: 14px; font-weight: 600; }
 .level-desc { font-size: 12px; color: var(--text-muted); }
 
-/* ── 18. Protect Warning ───────────────────────────────────── */
+/* ── 19. Protect Warning ───────────────────────────────────── */
 .protect-warning { background: #FFFBEB; border: 1px solid #FDE68A; border-radius: 8px; padding: 12px 16px; font-size: 13px; color: #92400E; line-height: 1.5; }
 
-/* ── 19. Legal Pages ───────────────────────────────────────── */
+/* ── 20. Legal Pages ───────────────────────────────────────── */
 .legal-main { flex: 1; padding: 60px 24px; background: var(--bg-alt); }
 .legal-inner { max-width: 760px; margin: 0 auto; }
 .legal-header { text-align: center; margin-bottom: 48px; }
@@ -278,7 +273,39 @@ ul { list-style: none; }
 .legal-content ul li { font-size: 15px; color: var(--text-muted); line-height: 1.8; margin-bottom: 6px; }
 .legal-content a { color: var(--brand); }
 
-/* ── 20. Responsive ────────────────────────────────────────── */
+/* ── 21. Cookie Banner ─────────────────────────────────────── */
+.cookie-banner {
+  position: fixed; bottom: 16px; left: 16px; right: 16px;
+  max-width: 600px; margin: 0 auto;
+  background: #fff; border: 1.5px solid var(--border);
+  border-radius: 12px; padding: 16px 20px;
+  box-shadow: 0 10px 40px rgba(0,0,0,0.15);
+  z-index: 9999;
+  animation: cookieSlide 0.3s ease-out;
+}
+@keyframes cookieSlide {
+  from { transform: translateY(30px); opacity: 0; }
+  to   { transform: translateY(0); opacity: 1; }
+}
+.cookie-inner { display: flex; flex-direction: column; gap: 12px; }
+.cookie-inner p { font-size: 13px; color: var(--text); line-height: 1.5; margin: 0; }
+.cookie-inner a { color: var(--brand); font-weight: 600; }
+.cookie-btns { display: flex; gap: 8px; justify-content: flex-end; }
+@media (min-width: 600px) {
+  .cookie-inner { flex-direction: row; align-items: center; }
+  .cookie-inner p { flex: 1; }
+}
+
+/* ── 22. AdSense slots ─────────────────────────────────────── */
+.ad-slot {
+  display: block; width: 100%; min-height: 90px;
+  margin: 32px auto; text-align: center;
+  background: var(--bg-alt); border: 1px dashed var(--border);
+  border-radius: 8px;
+}
+.ad-slot-inner { max-width: 680px; margin: 0 auto; padding: 8px; }
+
+/* ── 23. Responsive ────────────────────────────────────────── */
 @media (max-width: 900px) {
   .footer-inner { grid-template-columns: 1fr; gap: 32px; }
   .footer-links { grid-template-columns: repeat(2, 1fr); }

@@ -7,7 +7,7 @@
   <meta name="description" content="Compress PDF files online for free. Reduce PDF size without losing quality. No signup needed. Works instantly in your browser."/>
   <meta name="keywords" content="compress PDF, reduce PDF size, PDF compressor, shrink PDF, compress PDF free"/>
   <meta name="author" content="PDFQuick"/>
-  <meta name="robots" content="index, follow"/>
+  <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large"/>
   <link rel="canonical" href="https://usepdfquick.com/compress.html"/>
   <meta property="og:type" content="website"/>
   <meta property="og:url" content="https://usepdfquick.com/compress.html"/>
@@ -28,7 +28,11 @@
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet"/>
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9212086908110813"
        crossorigin="anonymous"></script>
-</head>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-G0KEV25F42"></script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-G0KEV25F42');</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://usepdfquick.com/"}, {"@type": "ListItem", "position": 2, "name": "Compress PDF", "item": "https://usepdfquick.com/compress.html"}]}</script>
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "How does PDF compression work in PDFQuick?", "acceptedAnswer": {"@type": "Answer", "text": "Each PDF page is rendered to a canvas at your chosen DPI, then re-saved as a JPEG at optimized quality. This produces real size reduction of 40-75% depending on the level you choose."}}, {"@type": "Question", "name": "Will my compressed PDF lose quality?", "acceptedAnswer": {"@type": "Answer", "text": "The Low level (144 DPI, JPEG 85%) is nearly indistinguishable from the original. Medium and High trade quality for smaller size \u2014 still readable, but image sharpness is reduced."}}, {"@type": "Question", "name": "Is there a file size limit for compression?", "acceptedAnswer": {"@type": "Answer", "text": "No artificial limit. The only limit is your device memory. Most browsers handle PDFs up to 100MB comfortably."}}]}</script>
+  </head>
 <body>
 
   <nav class="navbar">
@@ -134,22 +138,37 @@
       </div>
 
     </div>
+  
+    <!-- Related Tools -->
+    <div class="related-tools">
+      <h3>You might also need</h3>
+      <div class="related-grid"><a href="merge.html">🔗 Merge PDF</a><a href="split.html">✂️ Split PDF</a><a href="pdf-to-image.html">🖼️ PDF to Image</a><a href="protect.html">🔒 Protect PDF</a></div>
+    </div>
   </main>
 
   <footer class="footer-main">
     <div class="footer-inner">
-      <div class="footer-brand">
-        <div class="logo" style="margin-bottom:10px;color:#fff;"><span class="logo-icon">⚡</span>PDFQuick</div>
-        <p>Free PDF tools that work right in your browser.</p>
-      </div>
+      <div class="footer-brand"><div class="logo" style="margin-bottom:10px;color:#fff;"><span class="logo-icon">⚡</span>PDFQuick</div><p>Free PDF tools that work right in your browser.</p></div>
       <div class="footer-links">
-        <div class="footer-col"><h4>Tools</h4><a href="merge.html">Merge PDF</a><a href="compress.html">Compress PDF</a><a href="split.html">Split PDF</a><a href="protect.html">Protect PDF</a></div>
+        <div class="footer-col"><h4>Tools</h4><a href="merge.html">Merge PDF</a><a href="compress.html">Compress PDF</a><a href="split.html">Split PDF</a><a href="protect.html">Protect PDF</a><a href="unlock.html">Unlock PDF</a><a href="pdf-to-image.html">PDF to Image</a><a href="image-to-pdf.html">Image to PDF</a><a href="watermark.html">Watermark PDF</a><a href="rotate.html">Rotate PDF</a><a href="word-to-pdf.html">Word to PDF</a></div>
         <div class="footer-col"><h4>Account</h4><a href="login.html">Login</a><a href="login.html#signup">Sign Up Free</a><a href="dashboard.html">Dashboard</a></div>
-        <div class="footer-col"><h4>Info</h4><a href="index.html#faq">FAQ</a><a href="index.html#how">How it works</a></div>
+        <div class="footer-col"><h4>Info</h4><a href="index.html#faq">FAQ</a><a href="index.html#how">How it works</a><a href="contact.html">Contact</a></div>
+        <div class="footer-col"><h4>Legal</h4><a href="privacy.html">Privacy Policy</a><a href="terms.html">Terms of Service</a></div>
       </div>
     </div>
     <div class="footer-bottom"><p>© 2025 PDFQuick · All files processed locally · Your privacy is protected</p></div>
   </footer>
+
+  <!-- Cookie Banner -->
+  <div id="cookie-banner" class="cookie-banner hidden">
+    <div class="cookie-inner">
+      <p>🍪 We use essential cookies for login and <strong>Google AdSense</strong> may use cookies to personalize ads. By using PDFQuick you agree to our <a href="privacy.html">Privacy Policy</a>.</p>
+      <div class="cookie-btns">
+        <button class="btn btn-ghost btn-sm" onclick="cookieChoice(false)">Essential only</button>
+        <button class="btn btn-primary btn-sm" onclick="cookieChoice(true)">Accept all</button>
+      </div>
+    </div>
+  </div>
 
   <!-- PDF.js for rendering, pdf-lib for rebuilding -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
