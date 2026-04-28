@@ -1,6 +1,4 @@
 User-agent: *
 Allow: /
-Disallow: /dashboard.html
-Disallow: /login.html
 
-Sitemap: https://www.usepdfquick.com/sitemap.xml
+Sitemap: https://pdfquick-dun.vercel.app/sitemap.xml
