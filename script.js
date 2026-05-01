@@ -122,39 +122,26 @@ async function initDashboard() {
   loadUserFiles(session.user.id);
 }
 
-async function initToolNavbar() {
-  // Update navbar auth area based on login state.
-  // Runs on every tool page so the Login / Sign-up / Dashboard
-  // buttons appear in the navbar consistently.
+async function initMergePage() {
+  // Update navbar based on login state
+  const { data: { session } } = await db.auth.getSession();
   const navArea = document.getElementById('nav-auth-area');
   if (!navArea) return;
 
-  try {
-    const { data: { session } } = await db.auth.getSession();
-    if (session) {
-      navArea.innerHTML = `
-        <span class="user-email-display">${session.user.email}</span>
-        <a href="dashboard.html" class="btn btn-ghost">Dashboard</a>
-        <button class="btn btn-ghost" onclick="handleLogout()">Logout</button>
-      `;
-    } else {
-      navArea.innerHTML = `
-        <a href="login.html" class="btn btn-ghost">Login</a>
-        <a href="login.html#signup" class="btn btn-primary">Sign up free</a>
-      `;
-    }
-  } catch (e) {
-    // If supabase isn't configured, fall back to logged-out nav
+  if (session) {
+    navArea.innerHTML = `
+      <span class="user-email-display">${session.user.email}</span>
+      <a href="dashboard.html" class="btn btn-ghost">Dashboard</a>
+      <button class="btn btn-ghost" onclick="handleLogout()">Logout</button>
+    `;
+  } else {
     navArea.innerHTML = `
       <a href="login.html" class="btn btn-ghost">Login</a>
       <a href="login.html#signup" class="btn btn-primary">Sign up free</a>
     `;
   }
-}
 
-async function initMergePage() {
-  await initToolNavbar();
-  // Set up drag and drop on the merge upload zone (multi-file)
+  // Set up drag and drop on the upload zone
   setupDropZone();
 }
 
@@ -366,18 +353,9 @@ async function loadUserFiles(userId) {
    SECTION 6: AUTO-INIT (runs on page load)
    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
 
-// Tool pages other than merge.html — they have their own file pickers
-// inline in the HTML, so we only need to populate the navbar auth area.
-const NAV_ONLY_TOOL_PAGES = [
-  'compress.html', 'split.html', 'protect.html',
-  'pdf-to-image.html', 'image-to-pdf.html',
-  'watermark.html', 'rotate.html'
-];
-
 document.addEventListener('DOMContentLoaded', () => {
   const page = currentPage();
 
   if (page === 'dashboard.html') initDashboard();
-  if (page === 'merge.html')     initMergePage();   // navbar + multi-file drop zone
-  if (NAV_ONLY_TOOL_PAGES.includes(page)) initToolNavbar(); // navbar only
+  if (page === 'merge.html')     initMergePage();
 });
