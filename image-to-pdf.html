@@ -3,36 +3,57 @@
 <head>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Image to PDF Online Free — JPG/PNG to PDF | PDFQuick</title>
-  <meta name="description" content="Convert JPG, PNG, WebP, GIF images to a PDF online for free. Drag and drop multiple images, arrange them, and download a single PDF."/>
+  <title>Image to PDF Online Free — Convert JPG/PNG to PDF | PDFQuick</title>
+  <meta name="description" content="Convert JPG, PNG or any images to PDF online for free. Combine multiple images into one PDF. No signup needed. Works instantly in your browser."/>
+  <meta name="keywords" content="image to PDF, JPG to PDF, PNG to PDF, convert image to PDF free, photos to PDF"/>
+  <meta name="author" content="PDFQuick"/>
   <meta name="robots" content="index, follow"/>
   <link rel="canonical" href="https://usepdfquick.com/image-to-pdf.html"/>
-  <meta property="og:title" content="Image to PDF Online Free | PDFQuick"/>
-  <meta property="og:description" content="Convert images to a single PDF in seconds. Free, private, no signup."/>
+  <meta property="og:type" content="website"/>
   <meta property="og:url" content="https://usepdfquick.com/image-to-pdf.html"/>
+  <meta property="og:title" content="Image to PDF Online Free — PDFQuick"/>
+  <meta property="og:description" content="Convert JPG/PNG images to PDF online for free. Fast, private, no signup needed."/>
   <meta property="og:image" content="https://usepdfquick.com/og-image.png"/>
+  <meta property="og:site_name" content="PDFQuick"/>
+  <meta name="twitter:card" content="summary_large_image"/>
+  <meta name="twitter:title" content="Image to PDF Online Free — PDFQuick"/>
+  <meta name="twitter:description" content="Convert JPG/PNG images to PDF online for free."/>
+  <meta name="twitter:image" content="https://usepdfquick.com/og-image.png"/>
   <meta name="theme-color" content="#3B6DFF"/>
   <link rel="icon" type="image/svg+xml" href="favicon.svg"/>
-  <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"How do I convert images to PDF for free?","acceptedAnswer":{"@type":"Answer","text":"Upload JPG, PNG, WebP or GIF images, arrange them in order, choose page size, and click Convert to PDF."}},{"@type":"Question","name":"What image formats are supported?","acceptedAnswer":{"@type":"Answer","text":"PDFQuick supports JPG, PNG, WebP, GIF, and BMP. All formats are auto-converted before being added to the PDF."}}]}</script>
+  <link rel="apple-touch-icon" href="favicon.svg"/>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"Image to PDF — PDFQuick","url":"https://usepdfquick.com/image-to-pdf.html","description":"Convert images to PDF online for free.","applicationCategory":"UtilitiesApplication","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"How do I convert images to PDF for free?","acceptedAnswer":{"@type":"Answer","text":"Upload JPG or PNG images, arrange them in order, choose page size, click Convert to PDF."}},{"@type":"Question","name":"What image formats are supported?","acceptedAnswer":{"@type":"Answer","text":"PDFQuick supports JPG, PNG, WebP, and GIF formats."}}]}</script>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://usepdfquick.com/"},{"@type":"ListItem","position":2,"name":"Image to PDF","item":"https://usepdfquick.com/image-to-pdf.html"}]}</script>
   <link rel="stylesheet" href="style.css"/>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet"/>
   <meta name="google-adsense-account" content="ca-pub-9212086908110813">
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9212086908110813" crossorigin="anonymous"></script>
+<!-- Google Analytics 4 -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-G0KEV25F42"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-G0KEV25F42');
+</script>
 </head>
 <body>
+
   <nav class="navbar">
     <div class="nav-inner">
       <a href="index.html" class="logo"><span class="logo-icon">⚡</span>PDFQuick</a>
       <div class="nav-links" id="nav-auth-area"></div>
     </div>
   </nav>
+
   <main class="tool-main">
     <div class="tool-inner">
+
       <div class="tool-header">
         <div class="tool-header-icon">📸</div>
         <h1>Image to PDF</h1>
-        <p>Combine your images into a single PDF document.</p>
+        <p>Convert JPG, PNG or any images into a PDF file instantly.</p>
       </div>
 
       <div class="upload-zone" id="upload-zone">
@@ -40,7 +61,7 @@
         <div class="upload-zone-inner" onclick="document.getElementById('file-input').click()">
           <div class="upload-icon">🖼️</div>
           <p class="upload-text">Click to select images</p>
-          <p class="upload-hint">JPG, PNG, WebP, GIF · or drag &amp; drop here</p>
+          <p class="upload-hint">JPG, PNG, WebP, GIF — drag & drop here</p>
           <button class="btn btn-primary" type="button">Select Images</button>
         </div>
       </div>
@@ -50,33 +71,29 @@
           <h3>Selected Images <span id="file-count" class="file-count-badge">0</span></h3>
           <button class="btn btn-ghost btn-sm" onclick="clearFiles()">Clear all</button>
         </div>
-        <div id="image-grid" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(120px,1fr));gap:10px;margin-bottom:20px;"></div>
-        <div style="margin-top:10px;">
-          <h4 style="margin:0 0 12px 0;font-size:14px;font-weight:600;color:var(--text);">Page size</h4>
-          <label class="compress-level active" id="size-fit">
-            <input type="radio" name="page-size" value="fit" checked onchange="setPageSize(this)"/>
-            <div>
-              <strong>Fit to image</strong>
-              <span style="display:block;font-size:12px;color:var(--text-muted);margin-top:2px;">Each page sized to its image</span>
-            </div>
-          </label>
-          <label class="compress-level" id="size-a4">
-            <input type="radio" name="page-size" value="a4" onchange="setPageSize(this)"/>
-            <div>
-              <strong>A4</strong>
-              <span style="display:block;font-size:12px;color:var(--text-muted);margin-top:2px;">Standard A4 page · image centered</span>
-            </div>
-          </label>
-        </div>
-        <div class="merge-actions">
-          <button class="btn btn-primary btn-lg" onclick="convertToPDF()" id="convert-btn">📄 Convert to PDF</button>
-        </div>
-      </div>
 
-      <div id="progress-section" class="file-list-section hidden">
-        <h3 id="progress-text">Converting...</h3>
-        <div style="background:var(--bg-alt);border-radius:100px;height:8px;margin-top:12px;overflow:hidden;">
-          <div id="progress-bar" style="background:var(--brand);height:100%;width:0%;transition:width 0.3s;border-radius:100px;"></div>
+        <!-- Image previews grid -->
+        <div id="image-grid" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(120px,1fr));gap:10px;margin-bottom:20px;"></div>
+
+        <div class="compress-options">
+          <h3>Page Size</h3>
+          <div class="compress-levels">
+            <label class="compress-level active">
+              <input type="radio" name="pagesize" value="fit" checked onchange="setPageSize(this)"/>
+              <div class="level-info"><span class="level-name">Fit to image</span><span class="level-desc">Each page fits the image size</span></div>
+            </label>
+            <label class="compress-level">
+              <input type="radio" name="pagesize" value="a4" onchange="setPageSize(this)"/>
+              <div class="level-info"><span class="level-name">A4 page</span><span class="level-desc">Standard A4 (210×297mm)</span></div>
+            </label>
+          </div>
+        </div>
+
+        <div class="merge-actions">
+          <button class="btn btn-primary btn-lg" onclick="convertToPDF()" id="convert-btn">
+            📄 Convert to PDF
+          </button>
+          <p class="merge-hint">Images will be added in the order shown above</p>
         </div>
       </div>
 
@@ -91,6 +108,7 @@
           </div>
         </div>
       </div>
+
     </div>
   </main>
 
@@ -100,7 +118,7 @@
       <div class="footer-links">
         <div class="footer-col"><h4>Tools</h4><a href="merge.html">Merge PDF</a><a href="compress.html">Compress PDF</a><a href="split.html">Split PDF</a><a href="protect.html">Protect PDF</a><a href="pdf-to-image.html">PDF to Image</a><a href="image-to-pdf.html">Image to PDF</a><a href="watermark.html">Watermark PDF</a><a href="rotate.html">Rotate PDF</a></div>
         <div class="footer-col"><h4>Account</h4><a href="login.html">Login</a><a href="login.html#signup">Sign Up Free</a><a href="dashboard.html">Dashboard</a></div>
-        <div class="footer-col"><h4>Info</h4><a href="index.html#faq">FAQ</a><a href="index.html#how">How it works</a><a href="about.html">About</a></div>
+        <div class="footer-col"><h4>Legal</h4><a href="privacy.html">Privacy Policy</a><a href="terms.html">Terms of Service</a></div>
       </div>
     </div>
     <div class="footer-bottom"><p>© 2026 PDFQuick · All files processed locally · Your privacy is protected</p></div>
@@ -113,13 +131,6 @@
   <script>
     let selectedFiles = [];
     let pageSizeMode = 'fit';
-    let objectUrls = [];
-
-    function formatBytes(b) {
-      if (b < 1024) return b + ' B';
-      if (b < 1024*1024) return (b/1024).toFixed(1) + ' KB';
-      return (b/(1024*1024)).toFixed(1) + ' MB';
-    }
 
     function setPageSize(radio) {
       pageSizeMode = radio.value;
@@ -127,22 +138,23 @@
       radio.closest('.compress-level').classList.add('active');
     }
 
+    function formatBytes(b) {
+      if (b < 1024) return b + ' B';
+      if (b < 1024*1024) return (b/1024).toFixed(1) + ' KB';
+      return (b/(1024*1024)).toFixed(1) + ' MB';
+    }
+
     function renderGrid() {
       const grid = document.getElementById('image-grid');
       const countEl = document.getElementById('file-count');
       countEl.textContent = selectedFiles.length;
-      // Revoke old preview URLs
-      objectUrls.forEach(u => URL.revokeObjectURL(u));
-      objectUrls = [];
       grid.innerHTML = selectedFiles.map((f, i) => {
         const url = URL.createObjectURL(f);
-        objectUrls.push(url);
-        const safeName = f.name.replace(/[<>&"']/g, c => ({'<':'&lt;','>':'&gt;','&':'&amp;','"':'&quot;',"'":'&#39;'}[c]));
         return `
           <div style="border:1.5px solid var(--border);border-radius:8px;overflow:hidden;position:relative;">
-            <img src="${url}" style="width:100%;height:100px;object-fit:cover;display:block;" alt="${safeName}"/>
-            <div style="padding:6px;background:var(--bg-alt);font-size:11px;color:var(--text-muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">${safeName}</div>
-            <button onclick="removeImage(${i})" type="button" style="position:absolute;top:4px;right:4px;background:rgba(0,0,0,0.6);color:#fff;border:none;border-radius:50%;width:22px;height:22px;cursor:pointer;font-size:11px;display:flex;align-items:center;justify-content:center;">✕</button>
+            <img src="${url}" style="width:100%;height:100px;object-fit:cover;display:block;" alt="${f.name}"/>
+            <div style="padding:6px;background:var(--bg-alt);font-size:11px;color:var(--text-muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">${f.name}</div>
+            <button onclick="removeImage(${i})" style="position:absolute;top:4px;right:4px;background:rgba(0,0,0,0.5);color:#fff;border:none;border-radius:50%;width:20px;height:20px;cursor:pointer;font-size:11px;display:flex;align-items:center;justify-content:center;">✕</button>
           </div>`;
       }).join('');
     }
@@ -158,25 +170,17 @@
 
     function clearFiles() {
       selectedFiles = [];
-      objectUrls.forEach(u => URL.revokeObjectURL(u));
-      objectUrls = [];
       document.getElementById('file-input').value = '';
       document.getElementById('file-panel').classList.add('hidden');
     }
 
-    function addImages(files) {
-      const newFiles = Array.from(files).filter(f => f.type.startsWith('image/'));
-      if (newFiles.length === 0) {
-        alert('Please select image files (JPG, PNG, WebP, GIF).');
-        return;
-      }
-      selectedFiles = [...selectedFiles, ...newFiles];
-      document.getElementById('file-panel').classList.remove('hidden');
-      renderGrid();
-    }
-
     document.getElementById('file-input').addEventListener('change', function() {
-      addImages(this.files);
+      const newFiles = Array.from(this.files).filter(f => f.type.startsWith('image/'));
+      selectedFiles = [...selectedFiles, ...newFiles];
+      if (selectedFiles.length > 0) {
+        document.getElementById('file-panel').classList.remove('hidden');
+        renderGrid();
+      }
     });
 
     const zone = document.getElementById('upload-zone');
@@ -184,111 +188,72 @@
     zone.addEventListener('dragleave', () => zone.classList.remove('drag-over'));
     zone.addEventListener('drop', e => {
       e.preventDefault(); zone.classList.remove('drag-over');
-      addImages(e.dataTransfer.files);
+      const newFiles = Array.from(e.dataTransfer.files).filter(f => f.type.startsWith('image/'));
+      selectedFiles = [...selectedFiles, ...newFiles];
+      if (selectedFiles.length > 0) {
+        document.getElementById('file-panel').classList.remove('hidden');
+        renderGrid();
+      }
     });
-
-    function showProgress(pct, text) {
-      document.getElementById('progress-bar').style.width = pct + '%';
-      if (text) document.getElementById('progress-text').textContent = text;
-    }
-
-    // Load any image (JPG/PNG/WebP/GIF/BMP) and convert to PNG bytes via canvas.
-    // This is the key fix: instead of guessing format, we always normalize to PNG.
-    function imageFileToPngBytes(file) {
-      return new Promise((resolve, reject) => {
-        const url = URL.createObjectURL(file);
-        const img = new Image();
-        img.onload = () => {
-          try {
-            const canvas = document.createElement('canvas');
-            canvas.width = img.naturalWidth;
-            canvas.height = img.naturalHeight;
-            const ctx = canvas.getContext('2d');
-            ctx.drawImage(img, 0, 0);
-            URL.revokeObjectURL(url);
-            canvas.toBlob(async blob => {
-              if (!blob) { reject(new Error('Could not encode image')); return; }
-              const buf = await blob.arrayBuffer();
-              resolve({ bytes: new Uint8Array(buf), width: img.naturalWidth, height: img.naturalHeight });
-            }, 'image/png');
-          } catch (e) {
-            URL.revokeObjectURL(url);
-            reject(e);
-          }
-        };
-        img.onerror = () => {
-          URL.revokeObjectURL(url);
-          reject(new Error('Could not read image: ' + file.name));
-        };
-        img.src = url;
-      });
-    }
 
     async function convertToPDF() {
       if (selectedFiles.length === 0) return;
       const btn = document.getElementById('convert-btn');
+      btn.textContent = '⏳ Converting...';
       btn.disabled = true;
-
-      document.getElementById('file-panel').classList.add('hidden');
-      document.getElementById('upload-zone').classList.add('hidden');
-      document.getElementById('progress-section').classList.remove('hidden');
-      showProgress(5, 'Reading images...');
 
       try {
         const pdfDoc = await PDFLib.PDFDocument.create();
-        const total = selectedFiles.length;
 
-        for (let i = 0; i < total; i++) {
-          showProgress(Math.round(((i + 1) / total) * 90), `Adding image ${i + 1} of ${total}...`);
-          const file = selectedFiles[i];
+        for (const file of selectedFiles) {
+          const arrayBuffer = await file.arrayBuffer();
+          const uint8 = new Uint8Array(arrayBuffer);
 
-          // Always convert to PNG via canvas (handles JPG/PNG/WebP/GIF/BMP)
-          const { bytes, width, height } = await imageFileToPngBytes(file);
-          const img = await pdfDoc.embedPng(bytes);
+          let img;
+          if (file.type === 'image/png') {
+            img = await pdfDoc.embedPng(uint8);
+          } else {
+            img = await pdfDoc.embedJpg(uint8);
+          }
 
           let page;
           if (pageSizeMode === 'a4') {
-            // A4 in points: 595.28 x 841.89
             page = pdfDoc.addPage([595.28, 841.89]);
-            const scale = Math.min(595.28 / width, 841.89 / height);
-            const w = width * scale;
-            const h = height * scale;
+            const scale = Math.min(595.28 / img.width, 841.89 / img.height);
+            const w = img.width * scale;
+            const h = img.height * scale;
             page.drawImage(img, { x: (595.28 - w) / 2, y: (841.89 - h) / 2, width: w, height: h });
           } else {
-            page = pdfDoc.addPage([width, height]);
-            page.drawImage(img, { x: 0, y: 0, width, height });
+            page = pdfDoc.addPage([img.width, img.height]);
+            page.drawImage(img, { x: 0, y: 0, width: img.width, height: img.height });
           }
         }
 
-        showProgress(95, 'Saving...');
         const pdfBytes = await pdfDoc.save();
         const blob = new Blob([pdfBytes], { type: 'application/pdf' });
         const url = URL.createObjectURL(blob);
 
-        const a = document.getElementById('download-link');
-        a.href = url;
-        a.download = 'images.pdf';
-
+        document.getElementById('download-link').href = url;
         document.getElementById('result-info').textContent =
-          `${total} image${total > 1 ? 's' : ''} combined · ${formatBytes(pdfBytes.length)}`;
+          `${selectedFiles.length} image${selectedFiles.length > 1 ? 's' : ''} converted · ${formatBytes(pdfBytes.length)}`;
 
-        document.getElementById('progress-section').classList.add('hidden');
+        document.getElementById('file-panel').classList.add('hidden');
+        document.getElementById('upload-zone').classList.add('hidden');
         document.getElementById('result-section').classList.remove('hidden');
 
-        if (typeof saveFileRecord === 'function') saveFileRecord('images.pdf', pdfBytes.length);
+        saveFileRecord('images.pdf', pdfBytes.length);
       } catch (err) {
+        alert('Error: ' + err.message + '\n\nTip: PNG files work best. Try converting your images to PNG first.');
         console.error(err);
-        alert('Could not create PDF: ' + (err.message || 'Try different images.'));
-        document.getElementById('progress-section').classList.add('hidden');
-        document.getElementById('upload-zone').classList.remove('hidden');
-        document.getElementById('file-panel').classList.remove('hidden');
       }
 
+      btn.textContent = '📄 Convert to PDF';
       btn.disabled = false;
     }
 
     function resetTool() {
-      clearFiles();
+      selectedFiles = [];
+      document.getElementById('file-input').value = '';
       document.getElementById('result-section').classList.add('hidden');
       document.getElementById('upload-zone').classList.remove('hidden');
     }

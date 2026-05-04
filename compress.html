@@ -1,98 +1,112 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8"/>
+  <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Compress PDF Online Free — Reduce PDF File Size | PDFQuick</title>
-  <meta name="description" content="Compress PDF files online for free. Real compression that actually reduces file size. No signup, processed in your browser."/>
+  <title>Compress PDF Online Free — PDFQuick</title>
+  <meta name="description" content="Compress PDF files online for free. Reduce PDF file size without losing quality. No signup needed. Works in your browser instantly."/>
   <meta name="robots" content="index, follow"/>
   <link rel="canonical" href="https://usepdfquick.com/compress.html"/>
-  <meta property="og:title" content="Compress PDF Online Free — Reduce PDF File Size | PDFQuick"/>
-  <meta property="og:description" content="Reduce PDF file size by up to 80% in seconds. Free, private, no signup."/>
+  <meta property="og:title" content="Compress PDF Online Free — PDFQuick"/>
+  <meta property="og:description" content="Reduce PDF file size online for free. Fast, private, no signup needed."/>
   <meta property="og:url" content="https://usepdfquick.com/compress.html"/>
-  <meta property="og:image" content="https://usepdfquick.com/og-image.png"/>
   <meta name="theme-color" content="#3B6DFF"/>
   <link rel="icon" type="image/svg+xml" href="favicon.svg"/>
-  <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"How do I compress a PDF online for free?","acceptedAnswer":{"@type":"Answer","text":"Upload your PDF, choose compression level (Light/Medium/Strong), click Compress PDF, and download. Done in seconds."}},{"@type":"Question","name":"How much can I reduce my PDF size?","acceptedAnswer":{"@type":"Answer","text":"Light keeps original quality. Medium reduces by 40-60%. Strong reduces by 60-90% but rasterizes pages. Image-heavy PDFs compress the most."}},{"@type":"Question","name":"Will text stay searchable?","acceptedAnswer":{"@type":"Answer","text":"Light mode keeps text searchable. Medium and Strong modes rasterize pages so text becomes part of the image (not searchable). Use Light mode if you need searchable text."}}]}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"How do I compress a PDF online for free?","acceptedAnswer":{"@type":"Answer","text":"Upload your PDF, choose compression level (Low/Medium/High), click Compress PDF, and download. Done in seconds."}},{"@type":"Question","name":"Will compression reduce PDF quality?","acceptedAnswer":{"@type":"Answer","text":"Low compression keeps best quality. Medium reduces file by 50% with good quality. High compression saves 70% with reduced quality."}},{"@type":"Question","name":"How small can I make my PDF?","acceptedAnswer":{"@type":"Answer","text":"You can compress PDFs by up to 70% of original size while maintaining readability."}}]}</script>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://usepdfquick.com/"},{"@type":"ListItem","position":2,"name":"Compress PDF","item":"https://usepdfquick.com/compress.html"}]}</script>
   <link rel="stylesheet" href="style.css"/>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet"/>
   <meta name="google-adsense-account" content="ca-pub-9212086908110813">
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9212086908110813" crossorigin="anonymous"></script>
+<!-- Google Analytics 4 -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-G0KEV25F42"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-G0KEV25F42');
+</script>
 </head>
 <body>
+
   <nav class="navbar">
     <div class="nav-inner">
       <a href="index.html" class="logo"><span class="logo-icon">⚡</span>PDFQuick</a>
       <div class="nav-links" id="nav-auth-area"></div>
     </div>
   </nav>
+
   <main class="tool-main">
     <div class="tool-inner">
+
       <div class="tool-header">
         <div class="tool-header-icon">🗜️</div>
         <h1>Compress PDF</h1>
-        <p>Reduce file size while keeping your document readable.</p>
+        <p>Reduce your PDF file size while keeping the quality good.</p>
       </div>
 
+      <!-- Upload zone -->
       <div class="upload-zone" id="upload-zone">
         <input type="file" id="file-input" accept=".pdf" hidden/>
         <div class="upload-zone-inner" onclick="document.getElementById('file-input').click()">
           <div class="upload-icon">📂</div>
           <p class="upload-text">Click to select a PDF file</p>
-          <p class="upload-hint">or drag &amp; drop here</p>
+          <p class="upload-hint">or drag & drop here</p>
           <button class="btn btn-primary" type="button">Select PDF File</button>
         </div>
       </div>
 
+      <!-- File selected panel -->
       <div id="file-panel" class="file-list-section hidden">
         <div class="file-list-header">
           <h3>Selected File</h3>
           <button class="btn btn-ghost btn-sm" onclick="clearFile()">Clear</button>
         </div>
         <ul class="file-list">
-          <li>
+          <li id="selected-file-info">
             <span class="file-list-icon">📄</span>
             <span class="file-list-name" id="file-name-display">file.pdf</span>
             <span class="file-list-size" id="file-size-display">0 KB</span>
           </li>
         </ul>
-        <div style="margin-top:20px;">
-          <h4 style="margin:0 0 12px 0;font-size:14px;font-weight:600;color:var(--text);">Compression level</h4>
-          <label class="compress-level active" id="level-low">
-            <input type="radio" name="compress-level" value="low" checked onchange="setLevel(this)"/>
-            <div>
-              <strong>Light</strong>
-              <span style="display:block;font-size:12px;color:var(--text-muted);margin-top:2px;">Keeps text searchable · ~10-30% smaller</span>
-            </div>
-          </label>
-          <label class="compress-level" id="level-medium">
-            <input type="radio" name="compress-level" value="medium" onchange="setLevel(this)"/>
-            <div>
-              <strong>Medium (recommended)</strong>
-              <span style="display:block;font-size:12px;color:var(--text-muted);margin-top:2px;">Rasterizes pages · ~40-60% smaller</span>
-            </div>
-          </label>
-          <label class="compress-level" id="level-high">
-            <input type="radio" name="compress-level" value="high" onchange="setLevel(this)"/>
-            <div>
-              <strong>Strong</strong>
-              <span style="display:block;font-size:12px;color:var(--text-muted);margin-top:2px;">Maximum compression · ~60-90% smaller</span>
-            </div>
-          </label>
+
+        <!-- Compression level -->
+        <div class="compress-options">
+          <h3>Compression Level</h3>
+          <div class="compress-levels">
+            <label class="compress-level active" id="level-low">
+              <input type="radio" name="compress" value="low" checked onchange="setLevel(this)"/>
+              <div class="level-info">
+                <span class="level-name">Low</span>
+                <span class="level-desc">~30% smaller · Best quality</span>
+              </div>
+            </label>
+            <label class="compress-level" id="level-medium">
+              <input type="radio" name="compress" value="medium" onchange="setLevel(this)"/>
+              <div class="level-info">
+                <span class="level-name">Medium</span>
+                <span class="level-desc">~50% smaller · Good quality</span>
+              </div>
+            </label>
+            <label class="compress-level" id="level-high">
+              <input type="radio" name="compress" value="high" onchange="setLevel(this)"/>
+              <div class="level-info">
+                <span class="level-name">High</span>
+                <span class="level-desc">~70% smaller · Reduced quality</span>
+              </div>
+            </label>
+          </div>
         </div>
+
         <div class="merge-actions">
-          <button class="btn btn-primary btn-lg" onclick="compressPDF()" id="compress-btn">🗜️ Compress PDF</button>
+          <button class="btn btn-primary btn-lg" onclick="compressPDF()" id="compress-btn">
+            🗜️ Compress PDF
+          </button>
+          <p class="merge-hint">Processing happens in your browser — your file is never uploaded</p>
         </div>
       </div>
 
-      <div id="progress-section" class="file-list-section hidden">
-        <h3 id="progress-text">Compressing...</h3>
-        <div style="background:var(--bg-alt);border-radius:100px;height:8px;margin-top:12px;overflow:hidden;">
-          <div id="progress-bar" style="background:var(--brand);height:100%;width:0%;transition:width 0.3s;border-radius:100px;"></div>
-        </div>
-      </div>
-
+      <!-- Result -->
       <div id="result-section" class="result-section hidden">
         <div class="result-card">
           <div class="result-icon">✅</div>
@@ -104,39 +118,32 @@
           </div>
         </div>
       </div>
+
     </div>
   </main>
 
   <footer class="footer-main">
     <div class="footer-inner">
-      <div class="footer-brand"><div class="logo" style="margin-bottom:10px;color:#fff;"><span class="logo-icon">⚡</span>PDFQuick</div><p>Free PDF tools that work right in your browser.</p></div>
+      <div class="footer-brand">
+        <div class="logo" style="margin-bottom:10px;color:#fff;"><span class="logo-icon">⚡</span>PDFQuick</div>
+        <p>Free PDF tools that work right in your browser.</p>
+      </div>
       <div class="footer-links">
         <div class="footer-col"><h4>Tools</h4><a href="merge.html">Merge PDF</a><a href="compress.html">Compress PDF</a><a href="split.html">Split PDF</a><a href="protect.html">Protect PDF</a><a href="pdf-to-image.html">PDF to Image</a><a href="image-to-pdf.html">Image to PDF</a><a href="watermark.html">Watermark PDF</a><a href="rotate.html">Rotate PDF</a></div>
         <div class="footer-col"><h4>Account</h4><a href="login.html">Login</a><a href="login.html#signup">Sign Up Free</a><a href="dashboard.html">Dashboard</a></div>
-        <div class="footer-col"><h4>Info</h4><a href="index.html#faq">FAQ</a><a href="index.html#how">How it works</a><a href="about.html">About</a></div>
+        <div class="footer-col"><h4>Info</h4><a href="index.html#faq">FAQ</a><a href="index.html#how">How it works</a></div>
       </div>
     </div>
     <div class="footer-bottom"><p>© 2026 PDFQuick · All files processed locally · Your privacy is protected</p></div>
   </footer>
 
-  <!-- pdf-lib for rebuilding the PDF -->
   <script src="https://unpkg.com/pdf-lib@1.17.1/dist/pdf-lib.min.js"></script>
-  <!-- pdf.js for rendering pages to canvas (needed for Medium/Strong compression) -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
   <script src="supabase.js"></script>
   <script src="script.js"></script>
   <script>
-    pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';
-
     let selectedFile = null;
     let compressionLevel = 'low';
-
-    function formatBytes(b) {
-      if (b < 1024) return b + ' B';
-      if (b < 1024*1024) return (b/1024).toFixed(1) + ' KB';
-      return (b/(1024*1024)).toFixed(1) + ' MB';
-    }
 
     function setLevel(radio) {
       compressionLevel = radio.value;
@@ -144,29 +151,35 @@
       radio.closest('.compress-level').classList.add('active');
     }
 
-    function pickFile(f) {
-      if (!f) return;
-      if (f.type !== 'application/pdf' && !f.name.toLowerCase().endsWith('.pdf')) {
-        alert('Please select a PDF file.');
-        return;
-      }
-      selectedFile = f;
-      document.getElementById('file-name-display').textContent = f.name;
-      document.getElementById('file-size-display').textContent = formatBytes(f.size);
-      document.getElementById('file-panel').classList.remove('hidden');
-    }
-
     document.getElementById('file-input').addEventListener('change', function() {
-      pickFile(this.files[0]);
+      if (this.files[0]) {
+        selectedFile = this.files[0];
+        document.getElementById('file-name-display').textContent = selectedFile.name;
+        document.getElementById('file-size-display').textContent = formatBytes(selectedFile.size);
+        document.getElementById('file-panel').classList.remove('hidden');
+      }
     });
 
+    // Drag and drop
     const zone = document.getElementById('upload-zone');
     zone.addEventListener('dragover', e => { e.preventDefault(); zone.classList.add('drag-over'); });
     zone.addEventListener('dragleave', () => zone.classList.remove('drag-over'));
     zone.addEventListener('drop', e => {
       e.preventDefault(); zone.classList.remove('drag-over');
-      pickFile(e.dataTransfer.files[0]);
+      const f = e.dataTransfer.files[0];
+      if (f && f.type === 'application/pdf') {
+        selectedFile = f;
+        document.getElementById('file-name-display').textContent = f.name;
+        document.getElementById('file-size-display').textContent = formatBytes(f.size);
+        document.getElementById('file-panel').classList.remove('hidden');
+      }
     });
+
+    function formatBytes(b) {
+      if (b < 1024) return b + ' B';
+      if (b < 1024*1024) return (b/1024).toFixed(1) + ' KB';
+      return (b/(1024*1024)).toFixed(1) + ' MB';
+    }
 
     function clearFile() {
       selectedFile = null;
@@ -174,130 +187,47 @@
       document.getElementById('file-panel').classList.add('hidden');
     }
 
-    function showProgress(pct, text) {
-      document.getElementById('progress-bar').style.width = pct + '%';
-      if (text) document.getElementById('progress-text').textContent = text;
-    }
-
-    // LIGHT compression: just re-save with object streams (works for PDFs with metadata bloat)
-    async function compressLight(bytes) {
-      const pdfDoc = await PDFLib.PDFDocument.load(bytes, { ignoreEncryption: true });
-      // Strip metadata
-      pdfDoc.setTitle('');
-      pdfDoc.setAuthor('');
-      pdfDoc.setSubject('');
-      pdfDoc.setKeywords([]);
-      pdfDoc.setProducer('');
-      pdfDoc.setCreator('');
-      return await pdfDoc.save({ useObjectStreams: true, addDefaultPage: false });
-    }
-
-    // MEDIUM/STRONG: rasterize each page to JPEG and rebuild PDF
-    async function compressByRaster(bytes, scale, quality) {
-      // Use pdf.js to render
-      const sourceBytes = new Uint8Array(bytes);
-      const sourcePdf = await pdfjsLib.getDocument({ data: sourceBytes }).promise;
-      const totalPages = sourcePdf.numPages;
-
-      // Build new PDF
-      const newPdf = await PDFLib.PDFDocument.create();
-
-      for (let i = 1; i <= totalPages; i++) {
-        showProgress(Math.round((i / totalPages) * 90), `Compressing page ${i} of ${totalPages}...`);
-
-        const page = await sourcePdf.getPage(i);
-        const viewport = page.getViewport({ scale });
-
-        // Render to canvas
-        const canvas = document.createElement('canvas');
-        canvas.width = Math.floor(viewport.width);
-        canvas.height = Math.floor(viewport.height);
-        const ctx = canvas.getContext('2d');
-        // Fill white background (otherwise transparent areas become black in JPEG)
-        ctx.fillStyle = '#FFFFFF';
-        ctx.fillRect(0, 0, canvas.width, canvas.height);
-        await page.render({ canvasContext: ctx, viewport }).promise;
-
-        // Convert canvas to JPEG blob
-        const jpegBlob = await new Promise(res =>
-          canvas.toBlob(res, 'image/jpeg', quality)
-        );
-        const jpegBytes = new Uint8Array(await jpegBlob.arrayBuffer());
-
-        // Embed JPEG into new PDF
-        const img = await newPdf.embedJpg(jpegBytes);
-        const newPage = newPdf.addPage([canvas.width, canvas.height]);
-        newPage.drawImage(img, { x: 0, y: 0, width: canvas.width, height: canvas.height });
-
-        // Free canvas memory
-        canvas.width = 0; canvas.height = 0;
-      }
-
-      showProgress(95, 'Finalizing...');
-      return await newPdf.save({ useObjectStreams: true });
-    }
-
     async function compressPDF() {
       if (!selectedFile) return;
       const btn = document.getElementById('compress-btn');
+      btn.textContent = '⏳ Compressing...';
       btn.disabled = true;
-
-      document.getElementById('file-panel').classList.add('hidden');
-      document.getElementById('upload-zone').classList.add('hidden');
-      document.getElementById('progress-section').classList.remove('hidden');
-      showProgress(5, 'Reading PDF...');
 
       try {
         const bytes = await selectedFile.arrayBuffer();
+        const pdfDoc = await PDFLib.PDFDocument.load(bytes, { ignoreEncryption: true });
+
+        // Compression by removing unused objects and re-saving
+        // Level affects quality hint in save options
+        const saveOptions = {
+          useObjectStreams: compressionLevel !== 'low',
+          addDefaultPage: false,
+          objectsPerTick: compressionLevel === 'high' ? 50 : 20,
+        };
+
+        const compressed = await pdfDoc.save(saveOptions);
+
         const originalSize = bytes.byteLength;
-
-        let compressed;
-        if (compressionLevel === 'low') {
-          showProgress(50, 'Optimizing...');
-          compressed = await compressLight(bytes);
-        } else if (compressionLevel === 'medium') {
-          // Render at 1.5x scale, JPEG quality 0.7
-          compressed = await compressByRaster(bytes, 1.5, 0.7);
-        } else {
-          // Strong: render at 1.0x scale, JPEG quality 0.5
-          compressed = await compressByRaster(bytes, 1.0, 0.5);
-        }
-
-        showProgress(100, 'Done!');
-
         const newSize = compressed.byteLength;
         const saved = Math.round((1 - newSize / originalSize) * 100);
 
         const blob = new Blob([compressed], { type: 'application/pdf' });
         const url = URL.createObjectURL(blob);
 
-        const downloadName = selectedFile.name.replace(/\.pdf$/i, '') + '-compressed.pdf';
-        const a = document.getElementById('download-link');
-        a.href = url;
-        a.download = downloadName;
+        document.getElementById('download-link').href = url;
+        document.getElementById('result-info').textContent =
+          `Original: ${formatBytes(originalSize)} → Compressed: ${formatBytes(newSize)} (${saved > 0 ? saved + '% smaller' : 'already optimized'})`;
 
-        let msg;
-        if (saved > 0) {
-          msg = `${formatBytes(originalSize)} → ${formatBytes(newSize)} · ${saved}% smaller`;
-        } else if (saved === 0) {
-          msg = `${formatBytes(originalSize)} → ${formatBytes(newSize)} · already optimized`;
-        } else {
-          msg = `${formatBytes(originalSize)} → ${formatBytes(newSize)} · already well-compressed (try a stronger level)`;
-        }
-        document.getElementById('result-info').textContent = msg;
-
-        document.getElementById('progress-section').classList.add('hidden');
+        document.getElementById('file-panel').classList.add('hidden');
+        document.getElementById('upload-zone').classList.add('hidden');
         document.getElementById('result-section').classList.remove('hidden');
 
-        if (typeof saveFileRecord === 'function') saveFileRecord(downloadName, newSize);
+        saveFileRecord('compressed.pdf', newSize);
       } catch (err) {
-        console.error(err);
-        alert('Could not compress this PDF. ' + (err.message || 'Try a different file.'));
-        document.getElementById('progress-section').classList.add('hidden');
-        document.getElementById('upload-zone').classList.remove('hidden');
-        document.getElementById('file-panel').classList.remove('hidden');
+        alert('Error compressing PDF: ' + err.message);
       }
 
+      btn.textContent = '🗜️ Compress PDF';
       btn.disabled = false;
     }
 

@@ -3,170 +3,238 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>PDFQuick — 8 Free PDF Tools Online | Merge, Compress, Split PDF</title>
-  <meta name="description" content="8 Free online PDF tools — merge, compress, split, protect, watermark, rotate PDFs and convert PDF to image instantly in your browser. No signup needed."/>
-  <meta name="keywords" content="PDF merge, PDF compress, PDF split, PDF protect, free PDF tools online, watermark PDF, rotate PDF, PDF to image, image to PDF"/>
+  <title>PDFQuick — PDF Tools That Run In Your Browser. No Upload. No Signup.</title>
+  <meta name="description" content="Free PDF tools that run entirely in your browser. Files never leave your device. No upload, no signup, no daily limits. 8 tools — merge, compress, split, protect, watermark, rotate, PDF↔Image."/>
+  <meta name="keywords" content="PDF tools, free PDF, browser PDF, no upload PDF, merge PDF, compress PDF, split PDF, ilovepdf alternative, smallpdf alternative"/>
   <meta name="author" content="PDFQuick"/>
   <meta name="robots" content="index, follow"/>
   <link rel="canonical" href="https://usepdfquick.com/"/>
   <meta property="og:type" content="website"/>
   <meta property="og:url" content="https://usepdfquick.com/"/>
-  <meta property="og:title" content="PDFQuick — 8 Free PDF Tools Online"/>
-  <meta property="og:description" content="Merge, compress, split, protect PDFs free online. No signup needed."/>
+  <meta property="og:title" content="PDFQuick — Free PDF Tools That Never Upload Your Files"/>
+  <meta property="og:description" content="8 PDF tools that run entirely in your browser. No upload. No signup. No daily limits."/>
   <meta property="og:image" content="https://usepdfquick.com/og-image.png"/>
   <meta property="og:site_name" content="PDFQuick"/>
   <meta name="twitter:card" content="summary_large_image"/>
-  <meta name="twitter:title" content="PDFQuick — 8 Free PDF Tools Online"/>
-  <meta name="twitter:description" content="Merge, compress, split, protect PDFs free online."/>
+  <meta name="twitter:title" content="PDFQuick — Free PDF Tools That Never Upload Your Files"/>
+  <meta name="twitter:description" content="8 PDF tools that run entirely in your browser. No upload. No signup."/>
   <meta name="twitter:image" content="https://usepdfquick.com/og-image.png"/>
   <meta name="theme-color" content="#3B6DFF"/>
   <meta name="google-site-verification" content="vbCf7udMhMiOK85dpNQ5Xtn54xO6rGPTCJAQ1Lu0pac" />
   <meta name="google-adsense-account" content="ca-pub-9212086908110813">
   <link rel="icon" type="image/svg+xml" href="favicon.svg"/>
   <link rel="apple-touch-icon" href="favicon.svg"/>
+
+  <!-- Google Analytics 4 -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-G0KEV25F42"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-G0KEV25F42');
+  </script>
+
+  <!-- AdSense -->
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9212086908110813" crossorigin="anonymous"></script>
+
   <script type="application/ld+json">
-  {"@context":"https://schema.org","@type":"WebApplication","name":"PDFQuick","url":"https://usepdfquick.com","description":"8 Free online PDF tools — merge, compress, split, protect, watermark, rotate PDFs and convert PDF to image.","applicationCategory":"UtilitiesApplication","operatingSystem":"Any","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"featureList":["Merge PDF files","Compress PDF","Split PDF","Protect PDF with password","PDF to Image","Image to PDF","Watermark PDF","Rotate PDF"]}
+  {"@context":"https://schema.org","@type":"WebApplication","name":"PDFQuick","url":"https://usepdfquick.com","description":"Free PDF tools that run entirely in your browser. No upload, no signup.","applicationCategory":"UtilitiesApplication","operatingSystem":"Any","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"featureList":["Merge PDF","Compress PDF","Split PDF","Protect PDF","PDF to Image","Image to PDF","Watermark PDF","Rotate PDF"]}
   </script>
   <script type="application/ld+json">
-  {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Is PDFQuick really free?","acceptedAnswer":{"@type":"Answer","text":"Yes! All 8 PDF tools are completely free. No credit card needed."}},{"@type":"Question","name":"Are my files safe?","acceptedAnswer":{"@type":"Answer","text":"Files are processed in your browser and never uploaded to our servers."}},{"@type":"Question","name":"Do I need an account?","acceptedAnswer":{"@type":"Answer","text":"No account needed to use the tools. Sign up free to save file history."}},{"@type":"Question","name":"How many PDF tools are available?","acceptedAnswer":{"@type":"Answer","text":"All 8 PDF tools are live - Merge, Compress, Split, Protect, PDF to Image, Image to PDF, Watermark, and Rotate PDF."}}]}
+  {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Is PDFQuick really free, or is there a catch?","acceptedAnswer":{"@type":"Answer","text":"Actually free. No credit card, no email required, no daily limits, no watermarks. AdSense covers the domain cost."}},{"@type":"Question","name":"Do my files get uploaded anywhere?","acceptedAnswer":{"@type":"Answer","text":"No. Every PDF tool runs entirely in your browser using JavaScript. Your files never leave your device. Open DevTools to verify."}},{"@type":"Question","name":"Are there daily usage limits?","acceptedAnswer":{"@type":"Answer","text":"No. Use any tool as many times as you want. iLovePDF and SmallPDF cap free users — we don't."}},{"@type":"Question","name":"Do I need an account?","acceptedAnswer":{"@type":"Answer","text":"No. All 8 tools work without an account. Sign up only if you want to save file history."}}]}
   </script>
+
   <link rel="stylesheet" href="style.css"/>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+
+  <style>
+    .privacy-badge { display:inline-flex; align-items:center; gap:8px; background:#ECFDF5; color:#047857; padding:6px 14px; border-radius:100px; font-size:13px; font-weight:600; margin-bottom:20px; }
+    .compare-section { padding: 60px 24px; background: #F8FAFC; }
+    .compare-table { max-width: 900px; margin: 32px auto 0; background: #fff; border-radius: 16px; overflow: hidden; border: 1px solid #E5E7EB; }
+    .compare-table table { width: 100%; border-collapse: collapse; }
+    .compare-table th, .compare-table td { padding: 16px; text-align: left; border-bottom: 1px solid #F3F4F6; font-size: 15px; }
+    .compare-table th { background: #F8FAFC; font-weight: 600; color: #6B7280; font-size: 13px; text-transform: uppercase; letter-spacing: 0.5px; }
+    .compare-table .check { color: #10B981; font-weight: 700; }
+    .compare-table .cross { color: #EF4444; font-weight: 700; }
+    .compare-table .row-us { background: #EEF4FF; font-weight: 600; }
+    .compare-table .row-us td:first-child { color: #3B6DFF; }
+    .builder-note { max-width: 760px; margin: 60px auto; padding: 32px; background: #FFFBEB; border: 1px solid #FCD34D; border-radius: 16px; }
+    .builder-note h3 { color: #92400E; margin-bottom: 12px; font-size: 20px; }
+    .builder-note p { color: #78350F; line-height: 1.7; }
+    @media (max-width: 640px) {
+      .compare-table th, .compare-table td { padding: 10px 8px; font-size: 13px; }
+      .compare-table th:nth-child(n+4), .compare-table td:nth-child(n+4) { display: none; }
+    }
+  </style>
 </head>
 <body>
   <nav class="navbar">
     <div class="nav-inner">
       <a href="index.html" class="logo"><span class="logo-icon">⚡</span>PDFQuick</a>
       <div class="nav-links">
+        <a href="#compare" class="btn btn-ghost">Compare</a>
         <a href="#faq" class="btn btn-ghost">FAQ</a>
         <a href="about.html" class="btn btn-ghost">About</a>
         <a href="login.html" class="btn btn-ghost">Login</a>
-        <a href="login.html#signup" class="btn btn-primary">Get Started Free</a>
       </div>
     </div>
   </nav>
 
   <section class="hero">
     <div class="hero-inner">
-      <div class="hero-badge">✨ 100% Free · 8 PDF Tools · No sign-up needed</div>
-      <h1 class="hero-title">Every PDF tool<br/>you'll ever need</h1>
-      <p class="hero-subtitle">Merge, compress, split, protect, watermark, rotate PDFs — fast, free, and right in your browser.<br/>No installation. No waiting. No limits.</p>
+      <div class="privacy-badge">🔒 Files never leave your browser. Open DevTools to verify.</div>
+      <h1 class="hero-title">Your PDFs<br/>never leave your browser.</h1>
+      <p class="hero-subtitle">Free PDF tools that work entirely on your device. No uploads. No accounts. No daily limits. Just results.</p>
+
+      <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin:32px 0;">
+        <a href="merge.html" class="btn btn-primary btn-lg" onclick="gtag('event','cta_click',{location:'hero',tool:'merge'})">Merge a PDF — 3 seconds →</a>
+        <a href="#compare" class="btn btn-ghost btn-lg">See vs iLovePDF</a>
+      </div>
 
       <div class="tools-grid">
-        <a href="merge.html" class="tool-card tool-card--primary">
+        <a href="merge.html" class="tool-card tool-card--primary" onclick="gtag('event','tool_click',{tool:'merge'})">
           <div class="tool-icon">🔗</div>
-          <div class="tool-info"><h2>Merge PDF</h2><p>Combine multiple PDFs into one file instantly</p></div>
+          <div class="tool-info"><h2>Merge PDF</h2><p>Drag, drop, done. Files stay on your device.</p></div>
           <span class="tool-arrow">→</span>
         </a>
-
-        <a href="compress.html" class="tool-card">
+        <a href="compress.html" class="tool-card" onclick="gtag('event','tool_click',{tool:'compress'})">
           <div class="tool-icon">🗜️</div>
-          <div class="tool-info"><h2>Compress PDF</h2><p>Reduce file size without losing quality</p></div>
+          <div class="tool-info"><h2>Compress PDF</h2><p>Reduce size up to 70%. No quality loss.</p></div>
           <span class="tool-arrow">→</span>
         </a>
-
-        <a href="split.html" class="tool-card">
+        <a href="split.html" class="tool-card" onclick="gtag('event','tool_click',{tool:'split'})">
           <div class="tool-icon">✂️</div>
-          <div class="tool-info"><h2>Split PDF</h2><p>Extract pages or split into separate files</p></div>
+          <div class="tool-info"><h2>Split PDF</h2><p>Extract specific pages or split entire doc.</p></div>
           <span class="tool-arrow">→</span>
         </a>
-
-        <a href="protect.html" class="tool-card">
+        <a href="protect.html" class="tool-card" onclick="gtag('event','tool_click',{tool:'protect'})">
           <div class="tool-icon">🔒</div>
-          <div class="tool-info"><h2>Protect PDF</h2><p>Add a password to your PDF document</p></div>
+          <div class="tool-info"><h2>Protect PDF</h2><p>Add a password. AES encryption.</p></div>
           <span class="tool-arrow">→</span>
         </a>
-
-        <a href="pdf-to-image.html" class="tool-card">
+        <a href="pdf-to-image.html" class="tool-card" onclick="gtag('event','tool_click',{tool:'pdf-to-image'})">
           <div class="tool-icon">🖼️</div>
-          <div class="tool-info"><h2>PDF to Image</h2><p>Convert PDF pages to JPG or PNG images</p></div>
+          <div class="tool-info"><h2>PDF to Image</h2><p>Pages → JPG or PNG. Choose quality.</p></div>
           <span class="tool-arrow">→</span>
         </a>
-
-        <a href="image-to-pdf.html" class="tool-card">
+        <a href="image-to-pdf.html" class="tool-card" onclick="gtag('event','tool_click',{tool:'image-to-pdf'})">
           <div class="tool-icon">📸</div>
-          <div class="tool-info"><h2>Image to PDF</h2><p>Convert JPG/PNG images into a PDF file</p></div>
+          <div class="tool-info"><h2>Image to PDF</h2><p>JPG/PNG → PDF. Reorder before exporting.</p></div>
           <span class="tool-arrow">→</span>
         </a>
-
-        <a href="watermark.html" class="tool-card">
+        <a href="watermark.html" class="tool-card" onclick="gtag('event','tool_click',{tool:'watermark'})">
           <div class="tool-icon">💧</div>
-          <div class="tool-info"><h2>Watermark PDF</h2><p>Add custom text watermark to your PDF</p></div>
+          <div class="tool-info"><h2>Watermark PDF</h2><p>Custom text, color, opacity, position.</p></div>
           <span class="tool-arrow">→</span>
         </a>
-
-        <a href="rotate.html" class="tool-card">
+        <a href="rotate.html" class="tool-card" onclick="gtag('event','tool_click',{tool:'rotate'})">
           <div class="tool-icon">🔄</div>
-          <div class="tool-info"><h2>Rotate PDF</h2><p>Rotate all pages or specific pages</p></div>
+          <div class="tool-info"><h2>Rotate PDF</h2><p>All pages or specific ones. 90°/180°/270°.</p></div>
           <span class="tool-arrow">→</span>
         </a>
       </div>
     </div>
   </section>
 
-  <section class="stats-strip">
-    <div class="stats-strip-inner">
-      <div class="stat-item"><span class="stat-num">10K+</span><span class="stat-desc">PDFs Processed</span></div>
-      <div class="stat-divider"></div>
-      <div class="stat-item"><span class="stat-num">8</span><span class="stat-desc">PDF Tools</span></div>
-      <div class="stat-divider"></div>
-      <div class="stat-item"><span class="stat-num">100%</span><span class="stat-desc">Free Forever</span></div>
-      <div class="stat-divider"></div>
-      <div class="stat-item"><span class="stat-num">0</span><span class="stat-desc">Files Stored</span></div>
+  <section class="compare-section" id="compare">
+    <div style="max-width:900px;margin:0 auto;text-align:center;">
+      <div class="section-label">Honest comparison</div>
+      <h2 class="section-title">PDFQuick vs the big names</h2>
+      <p class="section-sub">No marketing fluff. Here's what each tool actually does on its free tier.</p>
+
+      <div class="compare-table">
+        <table>
+          <thead>
+            <tr>
+              <th>Feature</th>
+              <th style="color:#3B6DFF;">PDFQuick</th>
+              <th>iLovePDF</th>
+              <th>SmallPDF</th>
+              <th>Adobe</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="row-us">
+              <td>Files stay on your device</td>
+              <td class="check">✓ Always</td>
+              <td class="cross">✗ Uploaded</td>
+              <td class="cross">✗ Uploaded</td>
+              <td class="cross">✗ Uploaded</td>
+            </tr>
+            <tr>
+              <td>Daily task limit</td>
+              <td class="check">None</td>
+              <td>Limited</td>
+              <td class="cross">2/day</td>
+              <td>Subscription</td>
+            </tr>
+            <tr>
+              <td>Signup required</td>
+              <td class="check">No</td>
+              <td>For some tools</td>
+              <td>Yes (free tier)</td>
+              <td>Yes</td>
+            </tr>
+            <tr>
+              <td>Price</td>
+              <td class="check">Free forever</td>
+              <td>$7/mo Pro</td>
+              <td>$9/mo Pro</td>
+              <td>$19.99/mo</td>
+            </tr>
+            <tr>
+              <td>Tools available</td>
+              <td>8</td>
+              <td>20+</td>
+              <td>20+</td>
+              <td>50+</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p style="margin-top:20px;font-size:13px;color:#9CA3AF;">Comparisons based on each provider's public free-tier pricing as of 2026. We have fewer tools than the big names — but every one is unlimited and private.</p>
     </div>
   </section>
 
   <section class="how-section" id="how">
     <div class="section-inner">
       <div class="section-label">How it works</div>
-      <h2 class="section-title">3 simple steps</h2>
-      <p class="section-sub">No learning curve. Just upload and go.</p>
+      <h2 class="section-title">Three steps. No surprises.</h2>
       <div class="steps-grid">
-        <div class="step-card"><div class="step-num">01</div><div class="step-icon">📂</div><h3>Upload your files</h3><p>Drag & drop or click to select your PDF files from your device.</p></div>
-        <div class="step-card"><div class="step-num">02</div><div class="step-icon">⚙️</div><h3>Choose your tool</h3><p>Pick from 8 free PDF tools — all free, all instant.</p></div>
-        <div class="step-card"><div class="step-num">03</div><div class="step-icon">⬇️</div><h3>Download result</h3><p>Your processed PDF is ready instantly. Download it with one click.</p></div>
+        <div class="step-card"><div class="step-num">01</div><div class="step-icon">📂</div><h3>Pick a tool</h3><p>8 tools. All free. All unlimited. Pick what you need.</p></div>
+        <div class="step-card"><div class="step-num">02</div><div class="step-icon">⚙️</div><h3>Drop your file</h3><p>It's processed entirely in your browser. Nothing uploaded.</p></div>
+        <div class="step-card"><div class="step-num">03</div><div class="step-icon">⬇️</div><h3>Download</h3><p>Result is ready in seconds. Original file stays untouched.</p></div>
       </div>
     </div>
   </section>
 
-  <section class="features-section" id="features">
-    <div class="section-inner">
-      <div class="section-label">Why PDFQuick</div>
-      <h2 class="section-title">Built for speed & privacy</h2>
-      <div class="features-grid">
-        <div class="feature-card"><div class="feature-icon">🔐</div><h3>100% Private</h3><p>Your files never leave your browser. Everything processed locally — nothing uploaded to servers.</p></div>
-        <div class="feature-card"><div class="feature-icon">⚡</div><h3>Instant Processing</h3><p>No waiting for uploads or server processing. Results appear in seconds right in your browser.</p></div>
-        <div class="feature-card"><div class="feature-icon">💸</div><h3>Always Free</h3><p>No hidden fees, no premium tiers. All 8 PDF tools are completely free forever.</p></div>
-        <div class="feature-card"><div class="feature-icon">📱</div><h3>Works Everywhere</h3><p>Desktop, tablet, or mobile — PDFQuick works on any device with a modern browser.</p></div>
-        <div class="feature-card"><div class="feature-icon">🚫</div><h3>No Installation</h3><p>No app to download, no software to install. Just open your browser and start working.</p></div>
-        <div class="feature-card"><div class="feature-icon">📊</div><h3>File History</h3><p>Create a free account to save your file history and access your processed PDFs anytime.</p></div>
-      </div>
-    </div>
-  </section>
+  <div class="builder-note">
+    <h3>👋 A note from the builder</h3>
+    <p>Hi, I'm Ashish — a solo Indian developer. I built PDFQuick because I was tired of uploading my own documents to other people's servers just to merge two PDFs. There's no team here, no VC funding, no growth-hacking machine. Just me, this site, and a domain bill I cover with AdSense. If a tool ever breaks or you want a feature added, hit me up at the contact page. I read every email.</p>
+  </div>
 
   <section class="faq-section" id="faq">
     <div class="section-inner">
       <div class="section-label">FAQ</div>
-      <h2 class="section-title">Frequently asked questions</h2>
+      <h2 class="section-title">Honest answers</h2>
       <div class="faq-list">
-        <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">Is PDFQuick really free?<span class="faq-arrow">▼</span></button><div class="faq-a">Yes! All 8 PDF tools on PDFQuick are completely free. No credit card. No hidden fees. Ever.</div></div>
-        <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">Are my files safe and private?<span class="faq-arrow">▼</span></button><div class="faq-a">Absolutely. PDFQuick processes your files directly in your browser. Your files are never uploaded to any server.</div></div>
-        <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">Do I need to create an account?<span class="faq-arrow">▼</span></button><div class="faq-a">No! You can use all 8 PDF tools right now without any account. Sign up free to save your file history.</div></div>
-        <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">What PDF tools are available?<span class="faq-arrow">▼</span></button><div class="faq-a">All 8 tools are live — Merge, Compress, Split, Protect, PDF to Image, Image to PDF, Watermark, and Rotate PDF.</div></div>
-        <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">Is there a file size limit?<span class="faq-arrow">▼</span></button><div class="faq-a">Since processing happens in your browser, the limit is your device memory. Most devices handle up to 100MB easily.</div></div>
-        <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">What browsers are supported?<span class="faq-arrow">▼</span></button><div class="faq-a">PDFQuick works on Chrome, Firefox, Safari, and Edge. Use the latest version for best experience.</div></div>
+        <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">Is this actually free, or is there a catch?<span class="faq-arrow">▼</span></button><div class="faq-a">Actually free. No credit card, no email, no daily limits, no watermarks. The catch (if you can call it that): I run AdSense to cover the domain cost. That's it.</div></div>
+        <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">Do my files get uploaded anywhere?<span class="faq-arrow">▼</span></button><div class="faq-a">No. Every tool runs entirely in your browser using JavaScript libraries. To verify yourself: open DevTools → Network tab → use any tool. You'll see zero file uploads.</div></div>
+        <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">How is this different from iLovePDF / SmallPDF?<span class="faq-arrow">▼</span></button><div class="faq-a">They upload your files to their servers, limit free users to 2 tasks/day (SmallPDF) or by file size (iLovePDF), and require signup for many features. PDFQuick processes locally and has no limits. They have more tools (20+) — I have 8 of the most-used ones.</div></div>
+        <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">Why should I trust a site I've never heard of?<span class="faq-arrow">▼</span></button><div class="faq-a">Don't trust me — verify it yourself. Open DevTools, go to the Network tab, and use any tool. Your file never leaves your device.</div></div>
+        <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">Is there a file size limit?<span class="faq-arrow">▼</span></button><div class="faq-a">The limit is your device's RAM, not our server. Most laptops handle PDFs up to 100MB easily. Phones, around 50MB.</div></div>
+        <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">What browsers work?<span class="faq-arrow">▼</span></button><div class="faq-a">Chrome, Firefox, Safari, Edge — any modern version. Mobile and desktop both work.</div></div>
       </div>
     </div>
   </section>
 
   <section class="cta-section">
     <div class="cta-inner">
-      <h2>Ready to work with PDFs faster?</h2>
-      <p>Join thousands of users who use PDFQuick every day. Free forever.</p>
+      <h2>Try it. Files never leave your browser.</h2>
+      <p>Don't trust the marketing. Open the tool, watch the Network tab, see for yourself.</p>
       <div class="cta-btns">
-        <a href="merge.html" class="btn btn-white btn-lg">Try Merge PDF Free</a>
-        <a href="login.html#signup" class="btn btn-outline-white btn-lg">Create Free Account</a>
+        <a href="merge.html" class="btn btn-white btn-lg" onclick="gtag('event','cta_click',{location:'bottom',tool:'merge'})">Merge a PDF →</a>
+        <a href="compress.html" class="btn btn-outline-white btn-lg" onclick="gtag('event','cta_click',{location:'bottom',tool:'compress'})">Compress a PDF →</a>
       </div>
     </div>
   </section>
@@ -175,16 +243,16 @@
     <div class="footer-inner">
       <div class="footer-brand">
         <div class="logo" style="margin-bottom:10px;color:#fff;"><span class="logo-icon">⚡</span>PDFQuick</div>
-        <p>Free PDF tools that work right in your browser. No installation. 100% private.</p>
+        <p>Free PDF tools that work entirely in your browser. Built solo by an Indian developer.</p>
       </div>
       <div class="footer-links">
         <div class="footer-col"><h4>Tools</h4><a href="merge.html">Merge PDF</a><a href="compress.html">Compress PDF</a><a href="split.html">Split PDF</a><a href="protect.html">Protect PDF</a><a href="pdf-to-image.html">PDF to Image</a><a href="image-to-pdf.html">Image to PDF</a><a href="watermark.html">Watermark PDF</a><a href="rotate.html">Rotate PDF</a></div>
-        <div class="footer-col"><h4>Company</h4><a href="about.html">About Us</a><a href="login.html">Login</a><a href="login.html#signup">Sign Up Free</a><a href="dashboard.html">Dashboard</a></div>
-        <div class="footer-col"><h4>Resources</h4><a href="how-to-merge-pdf.html">How to Merge PDF</a><a href="how-to-compress-pdf.html">How to Compress PDF</a><a href="best-free-pdf-tools.html">Best PDF Tools</a></div>
-        <div class="footer-col"><h4>Legal</h4><a href="privacy.html">Privacy Policy</a><a href="terms.html">Terms of Service</a></div>
+        <div class="footer-col"><h4>Company</h4><a href="about.html">About</a><a href="login.html">Login</a><a href="login.html#signup">Sign Up</a><a href="dashboard.html">Dashboard</a></div>
+        <div class="footer-col"><h4>Guides</h4><a href="how-to-merge-pdf.html">How to merge</a><a href="how-to-compress-pdf.html">How to compress</a><a href="ilovepdf-alternative.html">vs iLovePDF</a><a href="smallpdf-alternative.html">vs SmallPDF</a></div>
+        <div class="footer-col"><h4>Legal</h4><a href="privacy.html">Privacy</a><a href="terms.html">Terms</a></div>
       </div>
     </div>
-    <div class="footer-bottom"><p>© 2026 PDFQuick · <a href="privacy.html" style="color:#6B7280;">Privacy Policy</a> · <a href="terms.html" style="color:#6B7280;">Terms of Service</a> · All files processed locally</p></div>
+    <div class="footer-bottom"><p>© 2026 PDFQuick · Built solo · Files never uploaded</p></div>
   </footer>
 
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
