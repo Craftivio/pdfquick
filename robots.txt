@@ -1,4 +1,8 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://usepdfquick.com/sitemap.xml
+# Block private user pages from indexing
+Disallow: /login.html
+Disallow: /dashboard.html
+
+Sitemap: https://www.usepdfquick.com/sitemap.xml
